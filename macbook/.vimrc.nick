@@ -1,0 +1,67 @@
+set expandtab
+set shiftwidth=2
+set sw=2
+set ts=2
+set paste
+set smartindent
+syntax on
+autocmd BufWritePre * :%s/\s\+$//e
+
+" General
+set nocompatible
+set encoding=UTF-8 nobomb
+set nopaste
+set undolevels=10000
+set viminfo=%,h,'1000,"1000,:1000,n~/.viminfo
+set writebackup
+set modelines=0
+set background=dark
+set showmatch
+
+set binary noeol        "Don't add EOL markers to new files.
+set noeol               "Same thing.
+set ignorecase          "Case insensitive searching
+set smartcase           "Case sensitive if search has CAPS
+set gdefault            " don't need /g after  or :g
+set nocompatible        "Don't run in compatibile mode, duh.
+
+" Searching
+"set hlsearch
+set nohls
+"set incsearch " Show matches while searching
+
+" set sane autoindent and 2 space soft tabs
+syntax enable
+set cindent
+set ai " Auto indent
+set smartindent
+set softtabstop=2
+set expandtab shiftwidth=2 tabstop=2 " nice tab and shift widths
+set scrolloff=2 " minlines to show around cursor
+set sidescrolloff=4 " minchars to show around cursor
+
+" i like status always
+set laststatus=2
+set statusline=%<%f%=\ [%1*%M%*%n%R]\ y\ %-19(%3l,%02c%03V%)
+
+" nice file search menus
+set wildmenu
+
+filetype on
+filetype plugin on
+filetype indent on
+
+vmap <C-c> :!pbcopy<CR>u
+map <Leader>l :set list<CR>
+map <Leader>nl :set nolist<CR>
+map <Leader>cr :!cucumber %<CR>
+map <Leader>sr :!spec %<CR>
+map <Leader>rr :!rake<CR>
+map <Leader>rc :!rake cruise<CR>
+map <Leader>d :Vexplore<CR>
+map <Leader>e <C-^><CR>
+let g:netrw_liststyle=3
+let g:netrw_browse_split=0
+
+" When eidting a file, always jump to the last cursor position
+au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
