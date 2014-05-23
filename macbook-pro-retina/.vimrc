@@ -29,6 +29,9 @@ syntax on
 " Do not break lines
 set nowrap
 
+" Skim templates should receive the same syntax highlighting as Slim templates
+au BufNewFile,BufRead *.skim set filetype=slim
+au BufRead,BufRead *.skim set filetype=slim
 
 
 " ----------
@@ -89,3 +92,7 @@ set ignorecase
 " indenting
 :vmap > >gv
 :vmap < <gv
+
+" Map '%/' to current working directory
+" credit to: 'Ben Schmidt' at 'http://vim.1045645.n5.nabble.com/Open-file-relative-to-current-file-s-directory-td1181344.html'
+:cmap %/ <C-r>=expand('%:p:h')<CR>/
