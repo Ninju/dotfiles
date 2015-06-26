@@ -34,6 +34,15 @@ au BufNewFile,BufRead *.skim set filetype=slim
 au BufRead,BufRead *.skim set filetype=slim
 
 
+" Credit - http://damien.lespiau.name/blog/2009/03/18/per-project-vimrc/comment-page-1/
+" -------------------------------------------------------------------------------------
+" Enable per-directory .vimrc files
+set exrc
+
+" Disable unsafe commands in local .vimrc files
+set secure
+
+
 " ----------
 " INDENTATION
 " ----------
@@ -93,6 +102,6 @@ set ignorecase
 :vmap > >gv
 :vmap < <gv
 
+" Credit - 'Ben Schmidt' at 'http://vim.1045645.n5.nabble.com/Open-file-relative-to-current-file-s-directory-td1181344.html'
 " Map '%/' to current working directory
-" credit to: 'Ben Schmidt' at 'http://vim.1045645.n5.nabble.com/Open-file-relative-to-current-file-s-directory-td1181344.html'
 :cmap %/ <C-r>=expand('%:p:h')<CR>/
