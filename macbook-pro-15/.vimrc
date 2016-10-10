@@ -1,0 +1,131 @@
+" --------
+" PATHOGEN
+" --------
+
+" Manage your 'runtimepath' with ease. In practical terms, pathogen.vim makes
+" it super easy to install plugins and runtime files in their own private
+" directories.
+"
+" execute pathogen#infect()
+" syntax on
+" filetype plugin indent on
+"
+" plugins are installed under .vim/bundle
+
+call pathogen#infect()
+
+
+" --- INSTALLED PLUGINS ---
+" https://github.com/pangloss/vim-javascript
+" --- END INSTALLED PLUGINS ---
+
+
+" ------
+" GENERAL
+" ------
+
+" Show line numbers
+set number
+
+" Turn on syntax highlighting
+syntax on
+
+" Do not break lines
+set nowrap
+
+" If I decide to set wrap,
+" it's probably because I'm writing/reading regular text
+" so break at word boundaries
+set linebreak
+
+" Skim templates should receive the same syntax highlighting as Slim templates
+au BufNewFile,BufRead *.skim set filetype=slim
+au BufRead,BufRead *.skim set filetype=slim
+
+
+" Credit - http://damien.lespiau.name/blog/2009/03/18/per-project-vimrc/comment-page-1/
+" -------------------------------------------------------------------------------------
+" Enable per-directory .vimrc files
+set exrc
+
+" Disable unsafe commands in local .vimrc files
+set secure
+
+
+" ----------
+" INDENTATION
+" ----------
+
+" Copies indentation from previous line
+" 'autoindent' does not interfere with filetype based indentation
+set autoindent
+"
+" Indents before '}' and matches indentation of '}' to matching '{'
+" (no it doesn't)
+" set smartindent
+
+" Use spaces instead of tabs
+set expandtab
+
+" Number of spaces to move when '<<', '>>', and '==' commands are used
+set shiftwidth=2
+
+" Number of spaces to insert when press <TAB> -- should be the same value as shiftwidth
+set softtabstop=2
+
+
+" -------
+" FILETYPE
+" -------
+
+" Enable plugins for specific file types
+filetype plugin on
+
+" Enable customisation of indentation based on filetype
+" Indentation scripts are in ~/.vim/indent
+filetype plugin indent on
+
+
+" --------
+" SEARCHING
+" --------
+
+" Highlight search results
+" set nohls
+set hlsearch
+
+" Show matches while searching
+set incsearch
+
+" Ignore case when searching
+set ignorecase
+
+" Fix backspace not working
+set nocompatible
+set backspace=2
+
+" Search results to black text color so I can actually see them!
+highlight Search ctermfg=black
+
+
+let g:ctrlp_path_nolim = 1
+let g:ctrlp_max_files = 100000
+
+" --------
+" KEY MAPS
+" --------
+
+" Automatically reselect previous selected VISUAL selection immediately after
+" indenting
+:vmap > >gv
+:vmap < <gv
+
+" Copy visual selection to the clipboard
+:vmap "" "+y
+
+" Credit - 'Ben Schmidt' at 'http://vim.1045645.n5.nabble.com/Open-file-relative-to-current-file-s-directory-td1181344.html'
+" Map '%/' to current working directory
+:cmap %/ <C-r>=expand('%:p:h')<CR>/
+
+:hi Visual term=reverse cterm=reverse guibg=Grey
+:highlight PmenuSel ctermfg=0 ctermbg=6
