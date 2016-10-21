@@ -129,3 +129,30 @@ let g:ctrlp_max_files = 100000
 
 :hi Visual term=reverse cterm=reverse guibg=Grey
 :highlight PmenuSel ctermfg=0 ctermbg=6
+
+:hi StatusLine   ctermfg=15  guifg=#ffffff ctermbg=239 guibg=#4e4e4e cterm=bold gui=bold
+:hi StatusLineNC ctermfg=249 guifg=#b2b2b2 ctermbg=237 guibg=#3a3a3a cterm=none gui=none
+
+augroup CursorLine
+    au!
+    au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+    au WinLeave * setlocal nocursorline
+augroup END
+
+" Copy current filename to clipboard
+" ----------------------------------
+" ,cs copies just the filename.
+" ,cl copies the filename including it's full path.
+" ,c8 copies the filename in 8.3 format for DOS and Windows 9x
+"
+" Convert slashes to backslashes for Windows.
+if has('win32')
+  nmap ,cs :let @*=substitute(expand("%"), "/", "\\", "g")<CR>
+  nmap ,cl :let @*=substitute(expand("%:p"), "/", "\\", "g")<CR>
+
+  " This will copy the path in 8.3 short format, for DOS and Windows 9x
+  nmap ,c8 :let @*=substitute(expand("%:p:8"), "/", "\\", "g")<CR>
+else
+  nmap ,cs :let @*=expand("%")<CR>
+  nmap ,cl :let @*=expand("%:p")<CR>
+endif
