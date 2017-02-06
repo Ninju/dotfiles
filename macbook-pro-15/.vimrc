@@ -1,3 +1,5 @@
+colorscheme darkblue
+
 " --------
 " PATHOGEN
 " --------
@@ -156,3 +158,9 @@ else
   nmap ,cs :let @*=expand("%")<CR>
   nmap ,cl :let @*=expand("%:p")<CR>
 endif
+
+
+" Show relative paths.
+let g:bufExplorerShowRelativePath=1
+
+runtime macros/matchit.vim
