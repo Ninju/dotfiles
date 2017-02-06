@@ -15,6 +15,10 @@
 call pathogen#infect()
 
 
+" --- INSTALLED PLUGINS ---
+" https://github.com/pangloss/vim-javascript
+" --- END INSTALLED PLUGINS ---
+
 
 " ------
 " GENERAL
@@ -28,6 +32,11 @@ syntax on
 
 " Do not break lines
 set nowrap
+
+" If I decide to set wrap,
+" it's probably because I'm writing/reading regular text
+" so break at word boundaries
+set linebreak
 
 " Skim templates should receive the same syntax highlighting as Slim templates
 au BufNewFile,BufRead *.skim set filetype=slim
@@ -77,13 +86,13 @@ filetype plugin on
 filetype plugin indent on
 
 
-
 " --------
 " SEARCHING
 " --------
 
-" Do not highlight search results
-set nohls
+" Highlight search results
+" set nohls
+set hlsearch
 
 " Show matches while searching
 set incsearch
@@ -91,7 +100,16 @@ set incsearch
 " Ignore case when searching
 set ignorecase
 
+" Fix backspace not working
+set nocompatible
+set backspace=2
 
+" Search results to black text color so I can actually see them!
+highlight Search ctermfg=black
+
+
+let g:ctrlp_path_nolim = 1
+let g:ctrlp_max_files = 100000
 
 " --------
 " KEY MAPS
@@ -102,6 +120,77 @@ set ignorecase
 :vmap > >gv
 :vmap < <gv
 
+" Copy visual selection to the clipboard
+:vmap "" "+y
+
 " Credit - 'Ben Schmidt' at 'http://vim.1045645.n5.nabble.com/Open-file-relative-to-current-file-s-directory-td1181344.html'
 " Map '%/' to current working directory
 :cmap %/ <C-r>=expand('%:p:h')<CR>/
+
+:hi Visual term=reverse cterm=reverse guibg=Grey
+:highlight PmenuSel ctermfg=0 ctermbg=6
+
+:hi StatusLine   ctermfg=15  guifg=#ffffff ctermbg=239 guibg=#4e4e4e cterm=bold gui=bold
+:hi StatusLineNC ctermfg=249 guifg=#b2b2b2 ctermbg=237 guibg=#3a3a3a cterm=none gui=none
+
+augroup CursorLine
+    au!
+    au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+    au WinLeave * setlocal nocursorline
+augroup END
+
+" Copy current filename to clipboard
+" ----------------------------------
+" ,cs copies just the filename.
+" ,cl copies the filename including it's full path.
+" ,c8 copies the filename in 8.3 format for DOS and Windows 9x
+"
+" Convert slashes to backslashes for Windows.
+if has('win32')
+  nmap ,cs :let @*=substitute(expand("%"), "/", "\\", "g")<CR>
+  nmap ,cl :let @*=substitute(expand("%:p"), "/", "\\", "g")<CR>
+
+  " This will copy the path in 8.3 short format, for DOS and Windows 9x
+  nmap ,c8 :let @*=substitute(expand("%:p:8"), "/", "\\", "g")<CR>
+else
+  nmap ,cs :let @*=expand("%")<CR>
+  nmap ,cl :let @*=expand("%:p")<CR>
+endif
+
+"" Taken from work
+
+colorscheme darkblue
+set cursorline
+set colorcolumn=80
+
+" hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white
+" almost black - I like this one a lot
+hi CursorLine   cterm=NONE ctermbg=234 ctermfg=NONE
+
+" hi CursorLine cterm=underline
+" hi CursorLine gui=underline
+
+nnoremap H :set cursorline! cursorcolumn!<CR>
+
+" set the prefered colours, pick one line here only.
+" " dark grey, better you can get if you don't support 256 colours
+" hi CursorLine   cterm=NONE ctermbg=8 ctermfg=NONE
+" " light grey, no 256 colors
+" hi CursorLine   cterm=NONE ctermbg=7 ctermfg=NONE
+" " dark redish
+" hi CursorLine   cterm=NONE ctermbg=52 ctermfg=NONE
+" " dark bluish
+" hi CursorLine   cterm=NONE ctermbg=17 ctermfg=NONE
+" " very light grey
+" hi CursorLine   cterm=NONE ctermbg=254 ctermfg=NONE
+" " yelowish
+" hi CursorLine   cterm=NONE ctermbg=229 ctermfg=NONE
+" " almost black
+" hi CursorLine   cterm=NONE ctermbg=234 ctermfg=NONE
+
+
+" From Damian Conway 'more instantly better vim'
+" https://www.youtube.com/watch?v=aHm36-na4-4&feature=youtu.be#t=4m59s
+
+exec "set listchars=tab:\uBB\uBB,nbsp:_,trail:\u00AC"
+set list
