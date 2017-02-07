@@ -1,5 +1,3 @@
-colorscheme darkblue
-
 " --------
 " PATHOGEN
 " --------
@@ -14,8 +12,17 @@ colorscheme darkblue
 "
 " plugins are installed under .vim/bundle
 
+call pathogen#helptags()
 call pathogen#infect()
 
+let mapleader=","
+
+nmap <silent> <leader>ev :edit $MYVIMRC<CR>
+nmap <silent> <leader>sv :source $MYVIMRC<CR>
+
+nmap <silent> <leader>w :BufExplorer<CR>
+
+nmap <silent> <leader>/ :nohlsearch<CR>
 
 " --- INSTALLED PLUGINS ---
 " https://github.com/pangloss/vim-javascript
@@ -159,8 +166,44 @@ else
   nmap ,cl :let @*=expand("%:p")<CR>
 endif
 
+"" Taken from work
 
-" Show relative paths.
+colorscheme darkblue
+set cursorline
+set colorcolumn=80
+
+" hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white
+" almost black - I like this one a lot
+hi CursorLine   cterm=NONE ctermbg=234 ctermfg=NONE
+
+" hi CursorLine cterm=underline
+" hi CursorLine gui=underline
+
+nnoremap H :set cursorline! cursorcolumn!<CR>
+
+" set the prefered colours, pick one line here only.
+" " dark grey, better you can get if you don't support 256 colours
+" hi CursorLine   cterm=NONE ctermbg=8 ctermfg=NONE
+" " light grey, no 256 colors
+" hi CursorLine   cterm=NONE ctermbg=7 ctermfg=NONE
+" " dark redish
+" hi CursorLine   cterm=NONE ctermbg=52 ctermfg=NONE
+" " dark bluish
+" hi CursorLine   cterm=NONE ctermbg=17 ctermfg=NONE
+" " very light grey
+" hi CursorLine   cterm=NONE ctermbg=254 ctermfg=NONE
+" " yelowish
+" hi CursorLine   cterm=NONE ctermbg=229 ctermfg=NONE
+" " almost black
+" hi CursorLine   cterm=NONE ctermbg=234 ctermfg=NONE
+
+
+" From Damian Conway 'more instantly better vim'
+" https://www.youtube.com/watch?v=aHm36-na4-4&feature=youtu.be#t=4m59s
+
+exec "set listchars=tab:\uBB\uBB,nbsp:_,trail:\u00AC"
+set list
+
 let g:bufExplorerShowRelativePath=1
 
 runtime macros/matchit.vim
