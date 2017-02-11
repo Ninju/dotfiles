@@ -12,8 +12,17 @@
 "
 " plugins are installed under .vim/bundle
 
+call pathogen#helptags()
 call pathogen#infect()
 
+let mapleader=","
+
+nmap <silent> <leader>ev :edit $MYVIMRC<CR>
+nmap <silent> <leader>sv :source $MYVIMRC<CR>
+
+nmap <silent> <leader>w :BufExplorer<CR>
+
+nmap <silent> <leader>/ :nohlsearch<CR>
 
 " --- INSTALLED PLUGINS ---
 " https://github.com/pangloss/vim-javascript
@@ -194,3 +203,17 @@ nnoremap H :set cursorline! cursorcolumn!<CR>
 
 exec "set listchars=tab:\uBB\uBB,nbsp:_,trail:\u00AC"
 set list
+
+let g:bufExplorerShowRelativePath=1
+
+runtime macros/matchit.vim
+
+" Powerline fonts for vim-airline
+let g:airline_powerline_fonts = 1
+
+" Always show statusline
+set laststatus=2
+
+" Use 256 colours (Use this setting only if your terminal supports 256
+" colours)
+set t_Co=256
