@@ -1,3 +1,5 @@
+"SR: means removed in order to see if it is affected the solarized theme
+
 " --------
 " PATHOGEN
 " --------
@@ -23,6 +25,10 @@ nmap <silent> <leader>sv :source $MYVIMRC<CR>
 nmap <silent> <leader>w :BufExplorer<CR>
 
 nmap <silent> <leader>/ :nohlsearch<CR>
+
+" Jump to previous/next buffer
+nmap <silent> <leader>1 :bp<CR>
+nmap <silent> <leader>2 :bn<CR>
 
 " --- INSTALLED PLUGINS ---
 " https://github.com/pangloss/vim-javascript
@@ -114,7 +120,7 @@ set nocompatible
 set backspace=2
 
 " Search results to black text color so I can actually see them!
-highlight Search ctermfg=black
+"SR: highlight Search ctermfg=black
 
 
 let g:ctrlp_path_nolim = 1
@@ -136,11 +142,11 @@ let g:ctrlp_max_files = 100000
 " Map '%/' to current working directory
 :cmap %/ <C-r>=expand('%:p:h')<CR>/
 
-:hi Visual term=reverse cterm=reverse guibg=Grey
-:highlight PmenuSel ctermfg=0 ctermbg=6
+"SR: :hi Visual term=reverse cterm=reverse guibg=Grey
+"SR: :highlight PmenuSel ctermfg=0 ctermbg=6
 
-:hi StatusLine   ctermfg=15  guifg=#ffffff ctermbg=239 guibg=#4e4e4e cterm=bold gui=bold
-:hi StatusLineNC ctermfg=249 guifg=#b2b2b2 ctermbg=237 guibg=#3a3a3a cterm=none gui=none
+"SR: :hi StatusLine   ctermfg=15  guifg=#ffffff ctermbg=239 guibg=#4e4e4e cterm=bold gui=bold
+"SR: :hi StatusLineNC ctermfg=249 guifg=#b2b2b2 ctermbg=237 guibg=#3a3a3a cterm=none gui=none
 
 augroup CursorLine
     au!
@@ -166,11 +172,27 @@ else
   nmap ,cl :let @*=expand("%:p")<CR>
 endif
 
+" My previous color scheme:
+" colorscheme darkblue
+
+"Solarized theme
+"
+"
+if has('gui_running')
+    set background=light
+else
+    let g:solarized_termcolors=256
+    set background=dark
+endif
+
+colorscheme solarized
+
+" End solarized color scheme
+
 "" Taken from work
 
-colorscheme darkblue
 set cursorline
-set colorcolumn=80
+set colorcolumn=0
 
 " hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white
 " almost black - I like this one a lot
@@ -216,4 +238,9 @@ set laststatus=2
 
 " Use 256 colours (Use this setting only if your terminal supports 256
 " colours)
-set t_Co=256
+"SR: set t_Co=256
+
+" ctags
+let g:Tlist_Ctags_Cmd='/usr/local/Cellar/ctags/5.8_1/bin/ctags'
+
+let g:ctrlp_custom_ignore = 'node_modules\|deps'
