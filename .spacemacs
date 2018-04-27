@@ -364,7 +364,6 @@ you should place your code here."
 
   (dumb-jump-mode)
 
-  ;; TODO(alex): open *scratch* buffer in other window
   (split-window-horizontally)
   (windmove-right)
   (switch-to-buffer "*scratch*")
