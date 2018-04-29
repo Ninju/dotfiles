@@ -163,11 +163,14 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-startup-buffer-responsive t
 
    ;; Default major mode of the scratch buffer (default `text-mode')
-   dotspacemacs-scratch-mode 'text-mode
+   dotspacemacs-scratch-mode 'lisp-mode
 
    ;; Initial message in the scratch buffer, such as "Welcome to Spacemacs!"
    ;; (default nil)
-   dotspacemacs-initial-scratch-message nil
+   dotspacemacs-initial-scratch-message "\
+;; This buffer is for notes you don't want to save, and for Lisp evaluation.
+;; If you want to create a file, visit that file with C-x C-f,
+;; then enter the text in that file's own buffer."
 
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
@@ -471,13 +474,7 @@ before packages are loaded."
         (progn
           (split-window-horizontally)
           (windmove-right)
-          (switch-to-buffer "*scratch*")
-          (with-current-buffer "*scratch*"
-            (when (= 0 (buffer-size))
-              (progn
-                (insert ";; This buffer is for notes you don't want to save, and for Lisp evaluation.\n")
-                (insert ";; If you want to create a file, visit that file with C-x C-f,\n")
-                (insert ";; then enter the text in that file's own buffer."))))))
+          (switch-to-buffer "*scratch*")))
 
   ;; TODO: Use (kbd ...) instead of [(control ?_) ...] for key bindings
 
