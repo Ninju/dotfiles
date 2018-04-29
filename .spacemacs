@@ -339,6 +339,7 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
+  ;; TODO: Create a *scratch* template with some nice text; looks a bit plain
   (when
       (= (count-windows) 1)
         (progn
@@ -346,16 +347,22 @@ you should place your code here."
           (windmove-right)
           (switch-to-buffer "*scratch*")))
 
+  ;; TODO: Use (kbd ...) instead of [(control ?_) ...] for key bindings
+
   ;; Disable lockfiles (those pesky .# files)
   (setq create-lockfiles nil)
 
+  ;; TODO: Find a better binding for SPC p I too; it's useful.
   (evil-leader/set-key "bl" 'ibuffer)
 
+  ;; TODO: I'm not sure this works. What's wrong with C-x C-e?
   (global-set-key [(control ?c) (control ?e)] 'eval-print-last-sexp)
 
+  ;; TODO: Would prefer C-c [ ala vim
   (global-set-key [(control ?c) (control ?g)] 'dumb-jump-go-other-window)
   (global-set-key [(control ?c) ?g] 'dumb-jump-go)
 
+  ;; TODO: Fix this, it does not work
   (global-set-key (kbd "M-3") '(lambda () (interactive) (insert "£")))
 
   (dumb-jump-mode)
@@ -363,8 +370,15 @@ you should place your code here."
   (load-file "~/.emacs.personal/custom-functions.el")
 
   ;; ,cl and ,cs equivalents from vim
+  ;; , leader seems to be reserved for major modes
   (global-set-key (kbd "C-c q q") 'my-proj-relative-buf-name)
   (global-set-key (kbd "C-c q w") 'spacemacs/show-and-copy-buffer-filename)
+
+  ;; TODO: Is there a global TODOS file variable?
+  ;;       Is there already a shortcut setup for opening it?
+  (global-set-key (kbd "C-c t") '(lambda () (interactive) (find-file "~/Downloads/TODOS.txt")))
+
+  ;; TODO: Great if the *helm-ag-edit* allowed me to do this with RET only
   (global-set-key (kbd "C-c RET") 'xah-open-file-at-cursor)
 )
 
