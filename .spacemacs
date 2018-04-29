@@ -352,6 +352,7 @@ you should place your code here."
   (evil-leader/set-key "bl" 'ibuffer)
 
   (global-set-key [(control ?c) (control ?e)] 'eval-print-last-sexp)
+
   (global-set-key [(control ?c) (control ?g)] 'dumb-jump-go-other-window)
   (global-set-key [(control ?c) ?g] 'dumb-jump-go)
 
@@ -359,6 +360,11 @@ you should place your code here."
 
   (dumb-jump-mode)
 
+  (load-file "~/.emacs.personal/custom-functions.el")
+
+  ;; ,cl and ,cs equivalents from vim
+  (global-set-key (kbd "C-c q q") 'my-proj-relative-buf-name)
+  (global-set-key (kbd "C-c q w") 'spacemacs/show-and-copy-buffer-filename)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
