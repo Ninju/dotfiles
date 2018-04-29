@@ -371,9 +371,11 @@ you should place your code here."
   (load-file "~/.emacs.personal/custom-functions.el")
 
   ;; ,cl and ,cs equivalents from vim
-  ;; , leader seems to be reserved for major modes
   (global-set-key (kbd "C-c q q") 'my-proj-relative-buf-name)
   (global-set-key (kbd "C-c q w") 'spacemacs/show-and-copy-buffer-filename)
+
+  (evil-leader/set-key "fq" 'spacemacs/show-and-copy-buffer-filename)
+  (evil-leader/set-key "pq" 'my-proj-relative-buf-name)
 
   ;; TODO: Is there a global TODOS file variable?
   ;;       Is there already a shortcut setup for opening it?
