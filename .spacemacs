@@ -65,7 +65,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(docker helm-ag multiple-cursors)
+   dotspacemacs-additional-packages '(helm-ag multiple-cursors)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -315,10 +315,6 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
 
-  (add-to-list 'load-path "/Users/awatt/github/spotify/dockerfile-mode/")
-  (require 'dockerfile-mode)
-  (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
-
   ;; Doesn't work very nicely with evil mode (need to figure out Emacs key bindings)
   ;; (global-set-key (kbd "C->") 'mc/mark-next-like-this)
   ;; (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
@@ -347,14 +343,6 @@ you should place your code here."
   (setq create-lockfiles nil)
 
   (evil-leader/set-key "bl" 'ibuffer)
-
-  (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
-  (setq exec-path (append exec-path '("/usr/local/bin")))
-  ;; Use "docker-machine env box" command to find out your environment variables
-  (setenv "DOCKER_TLS_VERIFY" "1")
-  (setenv "DOCKER_HOST" "tcp://192.168.99.100:2376")
-  (setenv "DOCKER_CERT_PATH" "/Users/foo/.docker/machine/machines/box")
-  (setenv "DOCKER_MACHINE_NAME" "box")
 
   (global-set-key [(control ?c) (control ?e)] 'eval-print-last-sexp)
   (global-set-key [(control ?c) (control ?g)] 'dumb-jump-go-other-window)
