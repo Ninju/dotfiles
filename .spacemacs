@@ -365,6 +365,7 @@ you should place your code here."
   ;; ,cl and ,cs equivalents from vim
   (global-set-key (kbd "C-c q q") 'my-proj-relative-buf-name)
   (global-set-key (kbd "C-c q w") 'spacemacs/show-and-copy-buffer-filename)
+  (global-set-key (kbd "C-c RET") 'xah-open-file-at-cursor)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
