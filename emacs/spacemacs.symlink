@@ -496,6 +496,7 @@ before packages are loaded."
   (global-set-key (kbd "C-c f y") 'spacemacs/show-and-copy-buffer-filename)
 
   (evil-leader/set-key "py" 'my-proj-relative-buf-name)
+  (evil-leader/set-key "fu" 'show-and-copy-file-path-with-line-number)
 
   ;; TODO: Is there a global TODOS file variable?
   ;;       Is there already a shortcut setup for opening it?
