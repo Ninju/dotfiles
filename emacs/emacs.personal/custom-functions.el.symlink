@@ -1,3 +1,9 @@
+(defun show-and-copy-file-path-with-line-number ()
+  (interactive)
+  (let ((path (concat (buffer-file-name) ":" (number-to-string (line-number-at-pos)))))
+    (message path)
+    (kill-new path)))
+
 (defun my-proj-relative-buf-name ()
   (interactive)
   (let ((file-name (file-relative-name buffer-file-name (projectile-project-root))))
