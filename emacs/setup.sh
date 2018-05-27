@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 
-# full-stop provides a way for us to hook into it's output functions
+# full-stop passes the path to a script containing
+# output functions that we can use to hook into the output
+#
+# e.g. * header()
+#      * fail()
+#      * success()
+#
 source "$1"
 
 header "Installing emacs"
