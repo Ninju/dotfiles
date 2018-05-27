@@ -479,6 +479,10 @@ before packages are loaded."
 
   ;; Consider _ to be part of a word in Ruby
   (add-hook 'ruby-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+
+  (global-set-key (kbd "C-c C-p") 'previous-buffer)
+  (global-set-key (kbd "C-c C-n") 'next-buffer)
+
   ;; Disable lockfiles (those pesky .# files)
   (setq create-lockfiles nil)
 
