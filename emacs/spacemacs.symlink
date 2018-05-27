@@ -471,6 +471,8 @@ before packages are loaded."
 
   ;; TODO: Use (kbd ...) instead of [(control ?_) ...] for key bindings
 
+  ;; Consider _ to be part of a word in Ruby
+  (add-hook 'ruby-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
   ;; Disable lockfiles (those pesky .# files)
   (setq create-lockfiles nil)
 
