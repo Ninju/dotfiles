@@ -1,0 +1,2 @@
+* When modifying the setup.sh script to replace Spacemacs with this custom ~/.emacs.d,
+  don't forget to `git clone {evil}` to the ~/.emacs.d directory.
