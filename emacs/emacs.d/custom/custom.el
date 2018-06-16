@@ -28,9 +28,6 @@
 ;;^ Buffer key bindings
 (global-unset-key (kbd "C-x b"))
 
-;;- Helm
-(global-set-key (kbd "M-x") 'helm-M-x)
-
 ;;- Projectile
 (add-hook 'projectile-global-mode '(global-set-key (kbd "C-c p f") 'helm-projectile-find-file))
 (projectile-global-mode)
@@ -40,3 +37,6 @@
 
 ;;- Ruby mode
 (add-hook 'ruby-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+
+;;- Helm
+(global-set-key (kbd "M-x") 'helm-M-x)
