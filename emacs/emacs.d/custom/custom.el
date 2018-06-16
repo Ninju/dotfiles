@@ -40,6 +40,7 @@
 
 ;;^ Buffer key bindings
 (global-unset-key (kbd "C-x b"))
+(defalias 'list-buffers 'ibuffer)
 
 ;;- Projectile
 (add-hook 'projectile-global-mode '(global-set-key (kbd "C-c p f") 'helm-projectile-find-file))
