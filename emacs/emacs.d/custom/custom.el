@@ -51,5 +51,9 @@
 ;;- Ruby mode
 (add-hook 'ruby-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
 
+;;- Winner mode
+(when (fboundp 'winner-mode)
+  (winner-mode 1))
+
 ;;- Helm
 (global-set-key (kbd "M-x") 'helm-M-x)
