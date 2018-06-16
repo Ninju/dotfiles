@@ -3,7 +3,6 @@
 ;;- package
 ;;^ built in
 ;;& helper shortcuts
-;;+ TODO
 
 ;;& Init files
 (defun open-emacsd-init-file ()
@@ -101,9 +100,9 @@
 ;;- Flycheck
 (setq flycheck-disabled-checkers (cons 'ruby-reek flycheck-disabled-checkers))
 
-;;+ TODO: package download should go into my config
+;; TODO: package download should go into my config
 ;;        https://nathantypanski.com/blog/2014-08-03-a-vim-like-emacs-config.html
 
-;;+ TODO: Ctrl-P for fuzzy find search still doesn't work
-;;  Note: This key binding overrides 'evil-paste-pop (still accessible via M-y)
+;; TODO: Ctrl-P for fuzzy find search still doesn't work
+;;       Note: Key binding overrides 'evil-paste-pop (still accessible via M-y)
 (bind-key* "C-p" 'helm-projectile-find-file-dwim)
