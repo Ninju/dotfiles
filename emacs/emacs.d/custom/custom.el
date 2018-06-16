@@ -28,6 +28,9 @@
 ;; Hide the menu bar
 (menu-bar-mode -1)
 
+;; Highlight current line
+(global-hl-line-mode +1)
+
 (global-set-key (kbd "C-c e i") 'open-emacsd-init-file)
 (global-set-key (kbd "C-c e e") 'open-emacsd-custom-file)
 
