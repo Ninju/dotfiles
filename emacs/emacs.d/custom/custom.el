@@ -96,3 +96,6 @@
     (set-face-foreground 'mode-line (cdr color))))
 
 (add-hook 'post-command-hook 'switch-modeline-color-on-insert-command-mode)
+
+;;- Flycheck
+(setq flycheck-disabled-checkers (cons 'ruby-reek flycheck-disabled-checkers))
