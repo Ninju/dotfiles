@@ -19,6 +19,9 @@
 ;; Show column numbers in modeline
 (column-number-mode)
 
+;; Hide the tool bar
+(tool-bar-mode -1)
+
 ;; Hide the menu bar
 (menu-bar-mode -1)
 
