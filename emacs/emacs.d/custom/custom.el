@@ -15,6 +15,10 @@
   (interactive)
   (find-file "~/.emacs.d/custom/custom.el"))
 
+;; Start config ---
+;; Show column numbers in modeline
+(column-number-mode)
+
 (global-set-key (kbd "C-c e i") 'open-emacsd-init-file)
 (global-set-key (kbd "C-c e e") 'open-emacsd-custom-file)
 
