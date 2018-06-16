@@ -39,7 +39,6 @@
 (global-set-key (kbd "C-c C-i") 'helm-imenu)
 
 ;;^ Buffer key bindings
-(global-unset-key (kbd "C-x b"))
 (defalias 'list-buffers 'ibuffer)
 
 ;;- Projectile
