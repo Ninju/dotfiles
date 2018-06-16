@@ -52,6 +52,9 @@
 ;; Do not consider `_` to be a word separator
 (add-hook 'ruby-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
 
+;; hs-minor-mode enables code folding
+(add-hook 'ruby-mode-hook 'hs-minor-mode)
+
 ;;- Winner mode
 (when (fboundp 'winner-mode)
   (winner-mode 1))
