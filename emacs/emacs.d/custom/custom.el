@@ -19,6 +19,9 @@
 ;; Show column numbers in modeline
 (column-number-mode)
 
+;; Hide the menu bar
+(menu-bar-mode -1)
+
 (global-set-key (kbd "C-c e i") 'open-emacsd-init-file)
 (global-set-key (kbd "C-c e e") 'open-emacsd-custom-file)
 
