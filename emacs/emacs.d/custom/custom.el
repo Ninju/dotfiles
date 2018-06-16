@@ -15,6 +15,9 @@
   (interactive)
   (find-file "~/.emacs.d/custom/custom.el"))
 
+(defun highlight-trailing-whitespaces-maybe ()
+  (when (derived-mode-p 'ruby-mode) (setq show-trailing-whitespace t)))
+
 ;; Start config ---
 ;; Show column numbers in modeline
 (column-number-mode)
@@ -27,6 +30,10 @@
 
 (global-set-key (kbd "C-c e i") 'open-emacsd-init-file)
 (global-set-key (kbd "C-c e e") 'open-emacsd-custom-file)
+
+;; Deal with trailing whitespace
+(add-hook 'after-change-major-mode-hook 'highlight-trailing-whitespaces-maybe)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;;^ imenu key bindings
 (global-set-key (kbd "C-c C-i") 'helm-imenu)
