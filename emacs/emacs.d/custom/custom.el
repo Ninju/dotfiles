@@ -55,6 +55,9 @@
 ;; hs-minor-mode enables code folding
 (add-hook 'ruby-mode-hook 'hs-minor-mode)
 
+;; Enable auto complete for Ruby
+(add-hook 'ruby-mode-hook 'auto-complete-mode)
+
 ;;- Winner mode
 (when (fboundp 'winner-mode)
   (winner-mode 1))
