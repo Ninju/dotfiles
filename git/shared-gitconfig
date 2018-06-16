@@ -1,0 +1,27 @@
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[core]
+	excludesfile = ~/.gitignore_global
+	editor = vim
+[alias]
+	co = checkout
+	st = status
+	unstage = reset HEAD --
+	current-branch = rev-parse --abbrev-ref HEAD
+	lg = log --oneline --abbrev-commit --graph
+	shs = status --short
+[commit]
+	template = ~/.gitmessage
+[log]
+	abbrevCommit = false
+[interactive]
+	singleKey = true
+[magit]
+	hideCampaign = true
+[merge]
+	tool = ediff
+[mergetool "ediff"]
+	tool = emacsclient -c -a \"\"  --eval \"(ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$BASE\\\" nil \\\"$MERGED\\\")\"
