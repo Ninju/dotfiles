@@ -3,6 +3,7 @@
 ;;- package
 ;;^ built in
 ;;& helper shortcuts
+;;+ TODO
 
 ;;& Init files
 (defun open-emacsd-init-file ()
