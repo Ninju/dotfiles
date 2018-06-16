@@ -99,3 +99,6 @@
 
 ;;- Flycheck
 (setq flycheck-disabled-checkers (cons 'ruby-reek flycheck-disabled-checkers))
+
+;;+ TODO: package download should go into my config
+;;        https://nathantypanski.com/blog/2014-08-03-a-vim-like-emacs-config.html
