@@ -81,6 +81,10 @@
 (global-set-key (kbd "M-x") 'helm-M-x)
 
 ;;- Evil
+;; Reinstate Emacs Tags key bindings
+(define-key evil-normal-state-map (kbd "M-.") 'find-tag)
+(define-key evil-normal-state-map (kbd "M-*") 'pop-tag-mark)
+
 ;; change mode-line color by evil state
 (defun switch-modeline-color-on-insert-command-mode ()
   (let* ((default-color (cons (face-background 'mode-line)
