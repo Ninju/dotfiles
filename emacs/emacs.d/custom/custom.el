@@ -111,13 +111,6 @@
 ;; TODO: fix modeline color switching on INSERT/COMMAND mode is not working properly
 (add-hook 'post-command-hook 'switch-modeline-color-on-insert-command-mode)
 
-;;- Flycheck
-(add-hook 'flycheck-mode-hook
-	  (lambda
-	    ()
-	    "Disable ruby-reek checker because it's not installed in all versions of Ruby which can lead to irritating error messages"
-	    (setq flycheck-disabled-checkers
-		  (cons 'ruby-reek flycheck-disabled-checkers))))
 
 ;; TODO: package download should go into my config
 ;;        https://nathantypanski.com/blog/2014-08-03-a-vim-like-emacs-config.html
