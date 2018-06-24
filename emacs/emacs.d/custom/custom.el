@@ -16,7 +16,8 @@
   (find-file "~/.emacs.d/custom/custom.el"))
 
 (defun highlight-trailing-whitespaces-maybe ()
-  (when (derived-mode-p 'ruby-mode) (setq show-trailing-whitespace t)))
+  (when (derived-mode-p 'ruby-mode) (setq show-trailing-whitespace t)
+	(derived-mode-p 'c-mode-common-hook) (setq show-trailing-whitespace t)))
 
 ;; Start config ---
 ;; Show column numbers in modeline
