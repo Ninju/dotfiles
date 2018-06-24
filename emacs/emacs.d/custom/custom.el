@@ -128,3 +128,4 @@
 
 ;;- Key binding for Objective-C, C, C++
 (global-set-key (kbd "C-c a t") 'ff-find-other-file)
+(objc-font-lock-global-mode 1)
