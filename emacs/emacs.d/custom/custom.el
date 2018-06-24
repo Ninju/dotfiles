@@ -125,3 +125,6 @@
 ;; TODO: Ctrl-P for fuzzy find search still doesn't work
 ;;       Note: Key binding overrides 'evil-paste-pop (still accessible via M-y)
 (bind-key* "C-p" 'helm-projectile-find-file-dwim)
+
+;;- Key binding for Objective-C, C, C++
+(global-set-key (kbd "C-c a t") 'ff-find-other-file)
