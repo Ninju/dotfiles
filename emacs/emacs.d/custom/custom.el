@@ -108,9 +108,9 @@
     (set-face-background 'mode-line (car color))
     (set-face-foreground 'mode-line (cdr color))))
 
-;; TODO: fix modeline color switching on INSERT/COMMAND mode is not working properly
-(add-hook 'post-command-hook 'switch-modeline-color-on-insert-command-mode)
 
+;; TODO: fix modeline color switching on INSERT/COMMAND mode is not working properly
+;; (add-hook 'post-command-hook 'switch-modeline-color-on-insert-command-mode)
 
 ;; TODO: package download should go into my config
 ;;        https://nathantypanski.com/blog/2014-08-03-a-vim-like-emacs-config.html
