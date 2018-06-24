@@ -59,8 +59,16 @@
 ;; hs-minor-mode enables code folding
 (add-hook 'ruby-mode-hook 'hs-minor-mode)
 
-;; Enable auto complete for Ruby
-(add-hook 'ruby-mode-hook 'auto-complete-mode)
+;; Enable auto complete using company-mode
+(global-company-mode 1)
+(setq company-idle-delay 0)
+
+;; company-yasnippet is particularly useful for Xcode so comes first
+;; TODO: Check for Ruby
+(add-to-list
+ #'company-backends
+ #'(company-yasnippet company-dabbrev-code company-gtags company-etags company-keywords))
+
 
 ;;- hs-minor-mode (code folding)
 (eval-after-load "hideshow"
