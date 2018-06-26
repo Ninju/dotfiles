@@ -40,6 +40,34 @@
 
 ;; END CORE
 
+;; START PACKAGE INSTALL
+(setq my-packages
+      '(helm
+	which-key
+	objc-font-lock
+	company
+	evil))
+
+(setq uninstalled-packages (seq-filter (lambda (package-name) (not (package-installed-p package-name))) my-packages))
+
+(if uninstalled-packages
+    (progn
+      (package-refresh-contents)
+
+(while uninstalled-packages
+  (let ((current-package (car uninstalled-packages)))
+    (setq uninstalled-packages (cdr uninstalled-packages))
+    (package-install current-package)))))
+
+
+(unless (and (package-installed-p 'which-key) (package-installed-p 'helm) (package-installed-p 'objc-font-lock))
+  (package-refresh-contents))
+
+(unless (package-installed-p #'helm)
+(package-install #'helm))
+
+;; END PACKAGE CONFIG
+
 ;; Deal with trailing whitespace
 (add-hook 'after-change-major-mode-hook 'highlight-trailing-whitespaces-maybe)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
