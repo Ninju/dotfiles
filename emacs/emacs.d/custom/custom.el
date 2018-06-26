@@ -68,6 +68,11 @@
 
 ;; END PACKAGE CONFIG
 
+;;- Evil
+(setq evil-want-C-i-jump nil)
+(require 'evil)
+(evil-mode 1)
+
 ;; Deal with trailing whitespace
 (add-hook 'after-change-major-mode-hook 'highlight-trailing-whitespaces-maybe)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
@@ -118,8 +123,6 @@
 (when (fboundp 'winner-mode)
   (winner-mode 1))
 
-
-;;- Evil
 ;; Reinstate Emacs Tags key bindings
 (define-key evil-normal-state-map (kbd "M-.") 'find-tag)
 (define-key evil-normal-state-map (kbd "M-*") 'pop-tag-mark)

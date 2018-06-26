@@ -27,9 +27,5 @@
  ;; If there is more than one, they won't work right.
  )
 
-(add-to-list 'load-path "~/.emacs.d/evil")
-(setq evil-want-C-i-jump nil)
-(require 'evil)
-(evil-mode 1)
-
+;; (add-to-list 'load-path "~/.emacs.d/evil")
 (load "~/.emacs.d/custom/custom.el")
