@@ -6,7 +6,6 @@
 (package-initialize)
 
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
-                         ("marmalade" . "https://marmalade-repo.org/packages/")
                          ("melpa" . "https://melpa.org/packages/")
 			 ("org" . "http://orgmode.org/elpa/")))
 (custom-set-variables
@@ -14,9 +13,13 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(company-dabbrev-downcase nil)
  '(package-selected-packages
    (quote
-    (which-key ag helm helm-ag helm-flx helm-fuzzier helm-fuzzy-find helm-projectile helm-swoop projectile evil))))
+    (company-c-headers objc-font-lock xclip exec-path-from-shell ecb undo-tree company w3m which-key ag helm helm-ag helm-flx helm-fuzzier helm-fuzzy-find helm-projectile helm-swoop projectile evil)))
+ '(split-height-threshold 999)
+ '(split-width-threshold 160)
+ '(yas-snippet-dirs (quote ("/Users/alex/.emacs.d/snippets"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

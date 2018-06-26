@@ -16,7 +16,8 @@
   (find-file "~/.emacs.d/custom/custom.el"))
 
 (defun highlight-trailing-whitespaces-maybe ()
-  (when (derived-mode-p 'ruby-mode) (setq show-trailing-whitespace t)))
+  (when (derived-mode-p 'ruby-mode) (setq show-trailing-whitespace t)
+	(derived-mode-p 'c-mode-common-hook) (setq show-trailing-whitespace t)))
 
 ;; Start config ---
 ;; Show column numbers in modeline
@@ -58,8 +59,16 @@
 ;; hs-minor-mode enables code folding
 (add-hook 'ruby-mode-hook 'hs-minor-mode)
 
-;; Enable auto complete for Ruby
-(add-hook 'ruby-mode-hook 'auto-complete-mode)
+;; Enable auto complete using company-mode
+(global-company-mode 1)
+(setq company-idle-delay 0)
+
+;; company-yasnippet is particularly useful for Xcode so comes first
+;; TODO: Check for Ruby
+(add-to-list
+ #'company-backends
+ #'(company-yasnippet company-dabbrev-code company-gtags company-etags company-keywords))
+
 
 ;;- hs-minor-mode (code folding)
 (eval-after-load "hideshow"
@@ -99,20 +108,15 @@
     (set-face-background 'mode-line (car color))
     (set-face-foreground 'mode-line (cdr color))))
 
-;; TODO: fix modeline color switching on INSERT/COMMAND mode is not working properly
-(add-hook 'post-command-hook 'switch-modeline-color-on-insert-command-mode)
 
-;;- Flycheck
-(add-hook 'flycheck-mode-hook
-	  (lambda
-	    ()
-	    "Disable ruby-reek checker because it's not installed in all versions of Ruby which can lead to irritating error messages"
-	    (setq flycheck-disabled-checkers
-		  (cons 'ruby-reek flycheck-disabled-checkers))))
+;; TODO: fix modeline color switching on INSERT/COMMAND mode is not working properly
+;; (add-hook 'post-command-hook 'switch-modeline-color-on-insert-command-mode)
 
 ;; TODO: package download should go into my config
 ;;        https://nathantypanski.com/blog/2014-08-03-a-vim-like-emacs-config.html
 
-;; TODO: Ctrl-P for fuzzy find search still doesn't work
-;;       Note: Key binding overrides 'evil-paste-pop (still accessible via M-y)
-(bind-key* "C-p" 'helm-projectile-find-file-dwim)
+;; TODO: Add Ctrl-P for fuzzy find search
+
+;;- Key binding for Objective-C, C, C++
+(global-set-key (kbd "C-c a t") 'ff-find-other-file)
+(objc-font-lock-global-mode 1)
