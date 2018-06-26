@@ -74,7 +74,6 @@
  #'company-backends
  #'(company-yasnippet company-dabbrev-code company-gtags company-etags company-keywords))
 
-
 ;;- hs-minor-mode (code folding)
 (eval-after-load "hideshow"
   '(add-to-list 'hs-special-modes-alist
