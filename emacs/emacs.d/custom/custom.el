@@ -42,11 +42,28 @@
 
 ;; START PACKAGE INSTALL
 (setq my-packages
-      '(helm
-	which-key
-	objc-font-lock
+      '(ag
+	async
 	company
-	evil))
+	company-c-headers
+	ecb
+	epl
+	evil
+	exec-path-from-shell
+	flycheck
+	helm
+	helm-core
+	helm-projectile
+	helm-swoop
+	objc-font-lock
+	pkg-info
+	popup
+	projectile
+	s
+	undo-tree
+	which-key
+	xclip
+	yasnippet))
 
 (setq uninstalled-packages (seq-filter (lambda (package-name) (not (package-installed-p package-name))) my-packages))
 

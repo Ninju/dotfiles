@@ -16,7 +16,7 @@
  '(company-dabbrev-downcase nil)
  '(package-selected-packages
    (quote
-    (company-c-headers objc-font-lock xclip exec-path-from-shell ecb undo-tree company w3m which-key ag helm helm-ag helm-flx helm-fuzzier helm-fuzzy-find helm-projectile helm-swoop projectile evil)))
+    (yasnippet company-c-headers objc-font-lock xclip exec-path-from-shell ecb undo-tree company w3m which-key ag helm helm-ag helm-flx helm-fuzzier helm-fuzzy-find helm-projectile helm-swoop projectile evil)))
  '(split-height-threshold 999)
  '(split-width-threshold 160)
  '(yas-snippet-dirs (quote ("/Users/alex/.emacs.d/snippets"))))
