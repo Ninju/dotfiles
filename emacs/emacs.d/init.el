@@ -16,7 +16,7 @@
  '(company-dabbrev-downcase nil)
  '(package-selected-packages
    (quote
-    (company-c-headers objc-font-lock xclip exec-path-from-shell ecb undo-tree company w3m which-key ag helm helm-ag helm-flx helm-fuzzier helm-fuzzy-find helm-projectile helm-swoop projectile evil)))
+    (yasnippet company-c-headers objc-font-lock xclip exec-path-from-shell ecb undo-tree company w3m which-key ag helm helm-ag helm-flx helm-fuzzier helm-fuzzy-find helm-projectile helm-swoop projectile evil)))
  '(split-height-threshold 999)
  '(split-width-threshold 160)
  '(yas-snippet-dirs (quote ("/Users/alex/.emacs.d/snippets"))))
@@ -27,9 +27,5 @@
  ;; If there is more than one, they won't work right.
  )
 
-(add-to-list 'load-path "~/.emacs.d/evil")
-(setq evil-want-C-i-jump nil)
-(require 'evil)
-(evil-mode 1)
-
+;; (add-to-list 'load-path "~/.emacs.d/evil")
 (load "~/.emacs.d/custom/custom.el")

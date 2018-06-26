@@ -4,6 +4,9 @@
 ;;^ built in
 ;;& helper shortcuts
 
+;; START CORE
+;; "CORE" is anything that is included in the base emacs installation and thus will not block init on a fresh install.
+
 ;;& Init files
 (defun open-emacsd-init-file ()
   "Open ~/.emacs.d/init.el"
@@ -34,6 +37,58 @@
 
 (global-set-key (kbd "C-c e i") 'open-emacsd-init-file)
 (global-set-key (kbd "C-c e e") 'open-emacsd-custom-file)
+
+;; END CORE
+
+;; START PACKAGE INSTALL
+(setq my-packages
+      '(ag
+	async
+	company
+	company-c-headers
+	ecb
+	epl
+	evil
+	exec-path-from-shell
+	flycheck
+	helm
+	helm-core
+	helm-projectile
+	helm-swoop
+	objc-font-lock
+	pkg-info
+	popup
+	projectile
+	s
+	undo-tree
+	which-key
+	xclip
+	yasnippet))
+
+(setq uninstalled-packages (seq-filter (lambda (package-name) (not (package-installed-p package-name))) my-packages))
+
+(if uninstalled-packages
+    (progn
+      (package-refresh-contents)
+
+(while uninstalled-packages
+  (let ((current-package (car uninstalled-packages)))
+    (setq uninstalled-packages (cdr uninstalled-packages))
+    (package-install current-package)))))
+
+
+(unless (and (package-installed-p 'which-key) (package-installed-p 'helm) (package-installed-p 'objc-font-lock))
+  (package-refresh-contents))
+
+(unless (package-installed-p #'helm)
+(package-install #'helm))
+
+;; END PACKAGE CONFIG
+
+;;- Evil
+(setq evil-want-C-i-jump nil)
+(require 'evil)
+(evil-mode 1)
 
 ;; Deal with trailing whitespace
 (add-hook 'after-change-major-mode-hook 'highlight-trailing-whitespaces-maybe)
@@ -69,7 +124,6 @@
  #'company-backends
  #'(company-yasnippet company-dabbrev-code company-gtags company-etags company-keywords))
 
-
 ;;- hs-minor-mode (code folding)
 (eval-after-load "hideshow"
   '(add-to-list 'hs-special-modes-alist
@@ -86,10 +140,6 @@
 (when (fboundp 'winner-mode)
   (winner-mode 1))
 
-;;- Helm
-(global-set-key (kbd "M-x") 'helm-M-x)
-
-;;- Evil
 ;; Reinstate Emacs Tags key bindings
 (define-key evil-normal-state-map (kbd "M-.") 'find-tag)
 (define-key evil-normal-state-map (kbd "M-*") 'pop-tag-mark)
@@ -108,15 +158,14 @@
     (set-face-background 'mode-line (car color))
     (set-face-foreground 'mode-line (cdr color))))
 
-
 ;; TODO: fix modeline color switching on INSERT/COMMAND mode is not working properly
 ;; (add-hook 'post-command-hook 'switch-modeline-color-on-insert-command-mode)
-
-;; TODO: package download should go into my config
-;;        https://nathantypanski.com/blog/2014-08-03-a-vim-like-emacs-config.html
 
 ;; TODO: Add Ctrl-P for fuzzy find search
 
 ;;- Key binding for Objective-C, C, C++
 (global-set-key (kbd "C-c a t") 'ff-find-other-file)
 (objc-font-lock-global-mode 1)
+
+;;- Helm
+(global-set-key (kbd "M-x") 'helm-M-x)
