@@ -4,6 +4,9 @@
 ;;^ built in
 ;;& helper shortcuts
 
+;; START CORE
+;; "CORE" is anything that is included in the base emacs installation and thus will not block init on a fresh install.
+
 ;;& Init files
 (defun open-emacsd-init-file ()
   "Open ~/.emacs.d/init.el"
@@ -34,6 +37,8 @@
 
 (global-set-key (kbd "C-c e i") 'open-emacsd-init-file)
 (global-set-key (kbd "C-c e e") 'open-emacsd-custom-file)
+
+;; END CORE
 
 ;; Deal with trailing whitespace
 (add-hook 'after-change-major-mode-hook 'highlight-trailing-whitespaces-maybe)
