@@ -90,8 +90,6 @@
 (when (fboundp 'winner-mode)
   (winner-mode 1))
 
-;;- Helm
-(global-set-key (kbd "M-x") 'helm-M-x)
 
 ;;- Evil
 ;; Reinstate Emacs Tags key bindings
@@ -112,7 +110,6 @@
     (set-face-background 'mode-line (car color))
     (set-face-foreground 'mode-line (cdr color))))
 
-
 ;; TODO: fix modeline color switching on INSERT/COMMAND mode is not working properly
 ;; (add-hook 'post-command-hook 'switch-modeline-color-on-insert-command-mode)
 
@@ -124,3 +121,6 @@
 ;;- Key binding for Objective-C, C, C++
 (global-set-key (kbd "C-c a t") 'ff-find-other-file)
 (objc-font-lock-global-mode 1)
+
+;;- Helm
+(global-set-key (kbd "M-x") 'helm-M-x)
