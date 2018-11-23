@@ -1,11 +1,14 @@
-# My Dotfiles
+# Dotfiles
 
-## Installation
+## Overview
 
-I use `full-stop` to put things in the right places.
+This repository is a central place for myself to host my shared configuration.
 
-Brief intro to `full-stop`:
+## Preferred setup
 
-Given that my dotfiles repo is at `$HOME/x/y/z/dotfiles`, then running `DOTFILES_DIR="$HOME/x/y/z/dotfiles" ./full-stop/script/full-stop` will do the job.
-
-For more info about full-stop, see http://github.com/goodgravy/full-stop
+- bash
+- tmux
+- emacs
+- Terminal.app on Mac
+- st on Linux/*BSD
+- i3wm on Linux/*BSD
