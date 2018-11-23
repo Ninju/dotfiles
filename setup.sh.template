@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# full-stop passes the path to a script containing
+# output functions that we can use to hook into the output
+#
+# e.g. * header()
+#      * fail()
+#      * success()
+#
+source "$1"
+
+header "Installing XXX"
+
+exit 0
