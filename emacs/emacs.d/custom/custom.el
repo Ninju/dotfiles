@@ -107,34 +107,9 @@
 ;;- Which-Key
 (which-key-mode)
 
-;;- Ruby mode
-;; Do not consider `_` to be a word separator
-(add-hook 'ruby-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
-
-;; hs-minor-mode enables code folding
-(add-hook 'ruby-mode-hook 'hs-minor-mode)
-
 ;; Enable auto complete using company-mode
 (global-company-mode 1)
 (setq company-idle-delay 0)
-
-;; company-yasnippet is particularly useful for Xcode so comes first
-;; TODO: Check for Ruby
-(add-to-list
- #'company-backends
- #'(company-yasnippet company-dabbrev-code company-gtags company-etags company-keywords))
-
-;;- hs-minor-mode (code folding)
-(eval-after-load "hideshow"
-  '(add-to-list 'hs-special-modes-alist
-    `(ruby-mode
-      ,(rx (or "def" "class" "module" "do" "{" "[")) ; Block start
-      ,(rx (or "}" "]" "end"))                       ; Block end
-      ,(rx (or "#" "=begin"))                        ; Comment start
-      ruby-forward-sexp nil)))
-
-(global-set-key (kbd "C-c h") 'hs-hide-block)
-(global-set-key (kbd "C-c s") 'hs-show-block)
 
 ;;- Winner mode
 (when (fboundp 'winner-mode)
@@ -163,9 +138,24 @@
 
 ;; TODO: Add Ctrl-P for fuzzy find search
 
-;;- Key binding for Objective-C, C, C++
-(global-set-key (kbd "C-c a t") 'ff-find-other-file)
-(objc-font-lock-global-mode 1)
-
 ;;- Helm
-(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "M-x") #'helm-M-x)
+(global-set-key (kbd "C-c a h s") #'helm-swoop)
+(global-set-key (kbd "C-c a h f") #'helm-projectile-find-file-dwim)
+(global-set-key (kbd "C-c a d f") #'find-dired)
+(global-set-key (kbd "C-c a h TAB") #'helm-imenu-in-all-buffers)
+
+(global-set-key (kbd "C-c p f") #'projectile-find-file)
+(global-set-key (kbd "C-c p s") #'projectile-ag)
+(global-set-key (kbd "C-c p p") #'projectile-switch-project)
+
+(global-set-key (kbd "C-c a g") #'ag)
+
+;;- Meta key
+;; (setq x-meta-keysym #'super
+;;       x-super-keysym #'meta)
+
+(set-face-attribute 'default nil :height 100)
+
+;; Xclip mode
+(xclip-mode 1)
