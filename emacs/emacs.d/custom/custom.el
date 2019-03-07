@@ -136,18 +136,26 @@
 ;; TODO: fix modeline color switching on INSERT/COMMAND mode is not working properly
 ;; (add-hook 'post-command-hook 'switch-modeline-color-on-insert-command-mode)
 
-;; TODO: Add Ctrl-P for fuzzy find search
-
 ;;- Helm
+(setq-default helm-split-window-default-side 'right)
+
 (global-set-key (kbd "M-x") #'helm-M-x)
-(global-set-key (kbd "C-c a h s") #'helm-swoop)
-(global-set-key (kbd "C-c a h f") #'helm-projectile-find-file-dwim)
+(global-set-key (kbd "C-c a s s") #'helm-swoop)
+(global-set-key (kbd "C-c a s p") #'helm-multi-swoop-projectile)
+(global-set-key (kbd "C-c a h f") #'helm-projectile-find-file)
 (global-set-key (kbd "C-c a d f") #'find-dired)
 (global-set-key (kbd "C-c a h TAB") #'helm-imenu-in-all-buffers)
 
-(global-set-key (kbd "C-c p f") #'projectile-find-file)
+(global-set-key (kbd "C-c p f") #'helm-projectile-find-file)
 (global-set-key (kbd "C-c p s") #'projectile-ag)
-(global-set-key (kbd "C-c p p") #'projectile-switch-project)
+(global-set-key (kbd "C-c p p") #'helm-projectile-switch-project)
+
+;; Vim-like bindings
+(define-key evil-normal-state-map (kbd ",ev") #'open-emacsd-init-file)
+(define-key evil-normal-state-map (kbd ",,") #'xref-find-definitions)
+(define-key evil-normal-state-map (kbd ",w") #'list-buffers)
+(define-key evil-normal-state-map (kbd "C-p") #'helm-projectile-find-file-dwim)
+(define-key evil-normal-state-map (kbd ", TAB") #'helm-imenu)
 
 (global-set-key (kbd "C-c a g") #'ag)
 
@@ -155,7 +163,15 @@
 ;; (setq x-meta-keysym #'super
 ;;       x-super-keysym #'meta)
 
-(set-face-attribute 'default nil :height 100)
+(set-face-attribute 'default nil :height 120)
 
 ;; Xclip mode
 (xclip-mode 1)
+
+(eval-after-load 'clojure-mode
+  '(sayid-setup-package))
+
+(toggle-scroll-bar 0)
+
+(when (version<= "26.0.50" emacs-version )
+  (global-display-line-numbers-mode 1))
