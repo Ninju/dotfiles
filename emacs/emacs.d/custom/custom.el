@@ -156,6 +156,7 @@
 (define-key evil-normal-state-map (kbd ",w") #'list-buffers)
 (define-key evil-normal-state-map (kbd "C-p") #'helm-projectile-find-file-dwim)
 (define-key evil-normal-state-map (kbd ", TAB") #'helm-imenu)
+(define-key evil-normal-state-map (kbd ", q") #'helm-browse-project)
 
 (global-set-key (kbd "C-c a g") #'ag)
 
@@ -171,7 +172,60 @@
 (eval-after-load 'clojure-mode
   '(sayid-setup-package))
 
-(toggle-scroll-bar 0)
+(if (fboundp 'toggle-scroll-bar)
+    (toggle-scroll-bar 0))
 
 (when (version<= "26.0.50" emacs-version )
   (global-display-line-numbers-mode 1))
+
+(defun aj-toggle-fold ()
+  "Toggle fold all lines larger than indentation on current line"
+  (interactive)
+  (let ((col 1))
+    (save-excursion
+      (back-to-indentation)
+      (setq col (+ 1 (current-column)))
+      (set-selective-display
+       (if selective-display nil (or col 1))))))
+
+(define-key evil-normal-state-map (kbd ",l") #'aj-toggle-fold)
+
+(global-evil-search-highlight-persist t)
+(define-key evil-normal-state-map (kbd ",/") #'evil-search-highlight-persist-remove-all)
+
+(defun is-project (name)
+  (s-suffix? (concat name "/") (projectile-project-root)))
+
+(defun is-alpaca-ok-then-solarized-light-theme ()
+  "Change to solarized light theme in buffer if it is inside Alpaca"
+  (interactive)
+  (cond ((is-project "alpaca") (message "ALPACA ALPACA ALPACA ALPACA ALPACA"))
+        ((is-project "funding_circle_app") (message "FCA FCA FCA FCA FCA FCA FCA"))))
+
+
+(global-set-key (kbd "C-c C-a") #'is-alpaca-ok-then-solarized-light-theme)
+(define-key evil-normal-state-map (kbd ",a") #'is-alpaca-ok-then-solarized-light-theme)
+
+(defun sidebar-toggle ()
+  "Toggle both `dired-sidebar' and `ibuffer-sidebar'."
+  (interactive)
+  (dired-sidebar-toggle-sidebar)
+  (ibuffer-sidebar-toggle-sidebar))
+
+(use-package dired-sidebar
+  :bind (("C-x C-n" . sidebar-toggle))
+  :ensure t
+  :commands (dired-sidebar-toggle-sidebar)
+  :init
+  (add-hook 'dired-sidebar-mode-hook
+            (lambda ()
+              (unless (file-remote-p default-directory)
+                (auto-revert-mode))))
+  :config
+  (push 'toggle-window-split dired-sidebar-toggle-hidden-commands)
+  (push 'rotate-windows dired-sidebar-toggle-hidden-commands)
+
+  (setq dired-sidebar-subtree-line-prefix "__")
+  (setq dired-sidebar-theme 'vscode)
+  (setq dired-sidebar-use-term-integration t)
+  (setq dired-sidebar-use-custom-font t))

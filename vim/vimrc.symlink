@@ -5,6 +5,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'airblade/vim-gitgutter'
 Plug 'lifepillar/vim-solarized8'
 
+Plug'triglav/vim-visual-increment'
+
 Plug 'majutsushi/tagbar'
 
 Plug 'reasonml-editor/vim-reason-plus'

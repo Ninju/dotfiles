@@ -1,8 +1,8 @@
 (require 'haskell-mode)
 ;; Generate tags after saving Haskell files
-(setq haskell-tags-on-save t)
+(setq haskell-tags-on-save nil)
 (custom-set-variables
-  '(haskell-tags-on-save t))
+  '(haskell-tags-on-save nil))
 
 (define-key haskell-mode-map (kbd "M-.") 'haskell-mode-goto-loc)
 (define-key haskell-mode-map (kbd "C-c C-t") 'haskell-mode-show-type-at)
