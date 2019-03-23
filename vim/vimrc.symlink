@@ -366,3 +366,11 @@ let g:tagbar_type_go = {
         \ }
 
 colorscheme solarized8
+
+set backup
+set undofile
+set swapfile
+
+set backupdir=~/.vim/files-backup//,/tmp/vim-backup-files//
+set directory=~/.vim/files-swap//,/tmp/vim-swap-files//
+set undodir=~/.vim/files-undo//,/tmp/vim-undo-files//
