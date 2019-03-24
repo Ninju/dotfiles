@@ -13,11 +13,19 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (whiteboard)))
+ '(ag-ignore-list (quote ("**.min.js")))
+ '(custom-enabled-themes (quote (solarized-dark)))
+ '(custom-safe-themes t)
  '(ecb-options-version "2.50")
+ '(haskell-process-auto-import-loaded-modules t)
+ '(haskell-process-log t)
+ '(haskell-process-suggest-remove-import-lines t)
+ '(haskell-tags-on-save nil)
+ '(lsp-auto-guess-root t t)
  '(package-selected-packages
    (quote
-    (company-lsp lsp-mode lsp-ocaml lsp-ui reason-mode cider cider-eval-sexp-fu sotclojure merlin merlin-eldoc tuareg web-mode treemacs alchemist elixir-mode s popup pkg-info helm-core flycheck epl async yasnippet company-c-headers objc-font-lock xclip exec-path-from-shell ecb undo-tree company w3m which-key ag helm helm-ag helm-flx helm-fuzzier helm-fuzzy-find helm-projectile helm-swoop projectile evil)))
+    (ace-jump ace-jump-mode exunit dap-ui-mode dap dap-mode lsp company-mode winner-mode ace-window ibuffer-projectile dired-sidebar ibuffer-sidebar ibuffer-vc noflet color-theme-buffer-local load-theme-buffer-local smart-shift highlight-indent-guides flymake-yaml yaml-imenu yaml-mode yaml-tomato rbenv go-mode rainbow-delimiters rainbow-mode company-ghc haskell-mode helm-hoogle scion company-lsp lsp-mode lsp-ocaml lsp-ui reason-mode cider cider-eval-sexp-fu sotclojure merlin merlin-eldoc tuareg web-mode treemacs alchemist elixir-mode s popup pkg-info helm-core flycheck epl async yasnippet company-c-headers objc-font-lock xclip exec-path-from-shell ecb undo-tree company w3m which-key ag helm helm-ag helm-flx helm-fuzzier helm-fuzzy-find helm-projectile helm-swoop projectile evil)))
+ '(solarized-high-contrast-mode-line nil)
  '(yas-snippet-dirs (quote ("/Users/alex/.emacs.d/snippets"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -26,23 +34,36 @@
  ;; If there is more than one, they won't work right.
  )
 
-;; (add-to-list 'load-path "~/.emacs.d/evil")
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(require 'use-package)
+
+
 (add-to-list 'load-path "~/.emacs.d/site-lisp")
-(add-to-list 'load-path "~/.emacs.d/custom")
 
-;; Others wrote these
-(load "dune.el")
-(load "dune-flymake.el")
-
-;; I wrote these
-(load "custom.el")
-(load "custom-term.el")
-(load "lang-common.el")
-(load "lang-ocaml.el")
-(load "lang-ruby.el")
-(load "lang-clojure.el")
-(load "lang-objc.el")
+;; In order of stability and dependency
+(mapc 'load (file-expand-wildcards "~/.emacs.d/site-lisp/*.el"))
+(mapc 'load (file-expand-wildcards "~/.emacs.d/core/*.el"))
+(mapc 'load (file-expand-wildcards "~/.emacs.d/alex/*.el"))
+(mapc 'load (file-expand-wildcards "~/.emacs.d/pkg/*.el"))
+(mapc 'load (file-expand-wildcards "~/.emacs.d/lang/*.el"))
+(mapc 'load (file-expand-wildcards "~/.emacs.d/custom/*.el"))
 
 ;; ## added by OPAM user-setup for emacs / base ## 56ab50dc8996d2bb95e7856a6eddb17b ## you can edit, but keep this line
 (require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
 ;; ## end of OPAM user-setup addition for emacs / base ## keep this line
+
+
+
+;; Maybe remove this.
+;; (require 'highlight-symbol)
+;; (global-set-key [(control f3)] 'highlight-symbol)
+;; (global-set-key [f3] 'highlight-symbol-next)
+;; (global-set-key [(shift f3)] 'highlight-symbol-prev)
+;; (global-set-key [(meta f3)] 'highlight-symbol-query-replace)
+
+;; Every time a window is started, make sure it get maximized
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+
+(load-theme 'solarized-dark t)

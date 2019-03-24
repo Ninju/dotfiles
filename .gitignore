@@ -1,1 +1,3 @@
 *.log
+./emacs/emacs.d/backup
+.lsp-session-v1

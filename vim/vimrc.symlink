@@ -1,36 +1,52 @@
-" --------
-" PATHOGEN
-" --------
+call plug#begin()
+Plug 'jlanzarotta/bufexplorer'
+Plug 'tpope/vim-surround'
+Plug 'scrooloose/nerdtree'
+Plug 'airblade/vim-gitgutter'
+Plug 'lifepillar/vim-solarized8'
 
-" Manage your 'runtimepath' with ease. In practical terms, pathogen.vim makes
-" it super easy to install plugins and runtime files in their own private
-" directories.
-"
-" execute pathogen#infect()
-" syntax on
-" filetype plugin indent on
-"
-" plugins are installed under .vim/bundle
+Plug'triglav/vim-visual-increment'
 
-let g:pathogen_disabled = []
-call add(g:pathogen_disabled, 'YankRing.vim')
+Plug 'majutsushi/tagbar'
 
-call pathogen#helptags()
-call pathogen#infect()
+Plug 'reasonml-editor/vim-reason-plus'
+
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+" for neovim
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" for vim 8 with python
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+  " the path to python3 is obtained through executing `:echo exepath('python3')` in vim
+  let g:python3_host_prog = "/usr/local/bin/python3"
+endif
+call plug#end()
+
+" enable autocomplete
+let g:deoplete#enable_at_startup = 1
 
 let mapleader=","
 
-nmap <silent> <leader>ev :edit $MYVIMRC<CR>
+" --------
+" KEY MAPS
+" --------
+
+nmap <silent> <leader>eev :edit $MYVIMRC<CR>
+nmap <silent> <leader>ev :edit ~/.vimrc<CR>
 nmap <silent> <leader>sv :source $MYVIMRC<CR>
 
 nmap <silent> <leader>w :BufExplorer<CR>
 
 nmap <silent> <leader>/ :nohlsearch<CR>
-
-" --- INSTALLED PLUGINS ---
-" https://github.com/pangloss/vim-javascript
-" --- END INSTALLED PLUGINS ---
-
 
 " ------
 " GENERAL
@@ -57,7 +73,7 @@ set wrap
 au BufNewFile,BufRead *.skim set filetype=slim
 au BufRead,BufRead *.skim set filetype=slim
 
-"Gemfile and Guardfile should get have Ruby syntax highlighting
+"Gemfile and Guardfile should get Ruby syntax highlighting
 au BufNewFile,BufRead Gemfile set filetype=ruby
 au BufRead,BufRead Gemfile set filetype=ruby
 
@@ -253,41 +269,108 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|deps\|_build'
 runtime macros/matchit.vim
 
 
-let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
-execute "set rtp+=" . g:opamshare . "/merlin/vim"
+" let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+" execute "set rtp+=" . g:opamshare . "/merlin/vim"
 
 " Also run the following line in vim to index the documentation:
-:execute "helptags " . g:opamshare . "/merlin/vim/doc"
+" :execute "helptags " . g:opamshare . "/merlin/vim/doc"
 
 " ## added by OPAM user-setup for vim / base ## 93ee63e278bdfc07d1139a748ed3fff2 ## you can edit, but keep this line
-let s:opam_share_dir = system("opam config var share")
-let s:opam_share_dir = substitute(s:opam_share_dir, '[\r\n]*$', '', '')
+" let s:opam_share_dir = system("opam config var share")
+" let s:opam_share_dir = substitute(s:opam_share_dir, '[\r\n]*$', '', '')
+"
+" let s:opam_configuration = {}
 
-let s:opam_configuration = {}
-
-function! OpamConfOcpIndent()
-  execute "set rtp^=" . s:opam_share_dir . "/ocp-indent/vim"
-endfunction
-let s:opam_configuration['ocp-indent'] = function('OpamConfOcpIndent')
-
-function! OpamConfOcpIndex()
-  execute "set rtp+=" . s:opam_share_dir . "/ocp-index/vim"
-endfunction
-let s:opam_configuration['ocp-index'] = function('OpamConfOcpIndex')
-
-function! OpamConfMerlin()
-  let l:dir = s:opam_share_dir . "/merlin/vim"
-  execute "set rtp+=" . l:dir
-endfunction
-let s:opam_configuration['merlin'] = function('OpamConfMerlin')
-
-let s:opam_packages = ["ocp-indent", "ocp-index", "merlin"]
-let s:opam_check_cmdline = ["opam list --installed --short --safe --color=never"] + s:opam_packages
-let s:opam_available_tools = split(system(join(s:opam_check_cmdline)))
-for tool in s:opam_packages
-  " Respect package order (merlin should be after ocp-index)
-  if count(s:opam_available_tools, tool) > 0
-    call s:opam_configuration[tool]()
-  endif
-endfor
+" function! OpamConfOcpIndent()
+  " execute "set rtp^=" . s:opam_share_dir . "/ocp-indent/vim"
+" endfunction
+" let s:opam_configuration['ocp-indent'] = function('OpamConfOcpIndent')
+"
+" function! OpamConfOcpIndex()
+  " execute "set rtp+=" . s:opam_share_dir . "/ocp-index/vim"
+" endfunction
+" let s:opam_configuration['ocp-index'] = function('OpamConfOcpIndex')
+"
+" function! OpamConfMerlin()
+  " let l:dir = s:opam_share_dir . "/merlin/vim"
+  " execute "set rtp+=" . l:dir
+" endfunction
+" let s:opam_configuration['merlin'] = function('OpamConfMerlin')
+"
+" let s:opam_packages = ["ocp-indent", "ocp-index", "merlin"]
+" let s:opam_check_cmdline = ["opam list --installed --short --safe --color=never"] + s:opam_packages
+" let s:opam_available_tools = split(system(join(s:opam_check_cmdline)))
+" for tool in s:opam_packages
+  " " Respect package order (merlin should be after ocp-index)
+  " if count(s:opam_available_tools, tool) > 0
+    " call s:opam_configuration[tool]()
+  " endif
+" endfor
 " ## end of OPAM user-setup addition for vim / base ## keep this line
+"
+
+" Required for operations modifying multiple buffers like rename.
+set hidden
+
+let g:LanguageClient_rootMarkers = {
+        \ 'go': ['.git', 'go.mod'],
+        \ }
+
+let g:LanguageClient_serverCommands = {
+    \ 'reason': ['reason-language-server.exe'],
+    \ 'go': ['bingo'],
+    \ }
+
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+" Or map each action separately
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+
+" if executable('reason-language-server.exe')
+"   au User lsp_setup call lsp#register_server({
+"         \ 'name': 'reason-language-server',
+"         \ 'cmd': {server_info->[&shell, &shellcmdflag, 'reason-language-server.exe']},
+"         \ 'whitelist': ['reason'],
+"         \ })
+" endif
+
+set runtimepath+=~/.vim-plugins/LanguageClient-neovim
+
+let g:tagbar_type_go = {
+	\ 'ctagstype' : 'go',
+	\ 'kinds'     : [
+		\ 'p:package',
+		\ 'i:imports:1',
+		\ 'c:constants',
+		\ 'v:variables',
+		\ 't:types',
+		\ 'n:interfaces',
+		\ 'w:fields',
+		\ 'e:embedded',
+		\ 'm:methods',
+		\ 'r:constructor',
+		\ 'f:functions'
+	\ ],
+	\ 'sro' : '.',
+	\ 'kind2scope' : {
+		\ 't' : 'ctype',
+		\ 'n' : 'ntype'
+	\ },
+	\ 'scope2kind' : {
+		\ 'ctype' : 't',
+		\ 'ntype' : 'n'
+	\ },
+	\ 'ctagsbin'  : 'gotags',
+	\ 'ctagsargs' : '-sort -silent'
+        \ }
+
+colorscheme solarized8
+
+set backup
+set undofile
+set swapfile
+
+set backupdir=~/.vim/files-backup//,/tmp/vim-backup-files//
+set directory=~/.vim/files-swap//,/tmp/vim-swap-files//
+set undodir=~/.vim/files-undo//,/tmp/vim-undo-files//
