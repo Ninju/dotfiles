@@ -39,27 +39,15 @@
 (require 'use-package)
 
 
-;; (add-to-list 'load-path "~/.emacs.d/evil")
 (add-to-list 'load-path "~/.emacs.d/site-lisp")
-(add-to-list 'load-path "~/.emacs.d/custom")
 
-;; Others wrote these
-;; (load "dune.el")
-;; (load "dune-flymake.el")
-
-;; I wrote these
-(load "custom.el")
-(load "custom-term.el")
-(load "lang-common.el")
-(load "lang-ocaml.el")
-(load "lang-ruby.el")
-(load "lang-clojure.el")
-(load "lang-objc.el")
-(load "lang-haskell.el")
-(load "lang-clojure.el.1")
-(load "lang-go.el")
-
-(load "keys.el")
+;; In order of stability and dependency
+(mapc 'load (file-expand-wildcards "~/.emacs.d/site-lisp/*.el"))
+(mapc 'load (file-expand-wildcards "~/.emacs.d/core/*.el"))
+(mapc 'load (file-expand-wildcards "~/.emacs.d/alex/*.el"))
+(mapc 'load (file-expand-wildcards "~/.emacs.d/pkg/*.el"))
+(mapc 'load (file-expand-wildcards "~/.emacs.d/lang/*.el"))
+(mapc 'load (file-expand-wildcards "~/.emacs.d/custom/*.el"))
 
 ;; ## added by OPAM user-setup for emacs / base ## 56ab50dc8996d2bb95e7856a6eddb17b ## you can edit, but keep this line
 (require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")

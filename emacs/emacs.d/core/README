@@ -1,0 +1,1 @@
+Everything in the core directory must ONLY refer to things in the base Emacs installation.
