@@ -1,2 +1,5 @@
-;;^ Buffer key bindings
-(defalias 'list-buffers 'ibuffer)
+(use-package ibuffer
+  :ensure t
+  :config
+  (defalias 'list-buffers 'ibuffer)
+  )

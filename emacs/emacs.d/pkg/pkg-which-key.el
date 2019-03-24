@@ -1,2 +1,5 @@
-;;- Which-Key
-(which-key-mode)
+(use-package which-key
+  :ensure t
+  :config
+  (which-key-mode 1)
+  )

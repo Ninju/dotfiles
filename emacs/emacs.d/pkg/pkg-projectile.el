@@ -1,7 +1,15 @@
-(defun is-project (name)
-  (s-suffix? (concat name "/") (projectile-project-root)))
+(use-package helm-projectile
+  :ensure t)
 
-(add-hook 'projectile-global-mode '(global-set-key (kbd "C-c p f") 'helm-projectile-find-file))
-(projectile-global-mode)
+(use-package projectile
+  :ensure t
+  :requires ag
+  :config
+  (defun is-project (name)
+    (s-suffix? (concat name "/") (projectile-project-root)))
 
-(global-set-key (kbd "C-c p s") #'projectile-ag)
+  (add-hook 'projectile-global-mode '(global-set-key (kbd "C-c p f") 'helm-projectile-find-file))
+  (projectile-global-mode)
+
+  (global-set-key (kbd "C-c p s") #'projectile-ag)
+  )

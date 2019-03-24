@@ -1,3 +1,5 @@
-;;- Winner mode
-(when (fboundp 'winner-mode)
-  (winner-mode 1))
+(use-package winner
+  :ensure t
+  :config
+  (winner-mode 1)
+  )
