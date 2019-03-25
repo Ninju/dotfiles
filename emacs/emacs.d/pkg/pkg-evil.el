@@ -8,6 +8,11 @@
   (define-key evil-normal-state-map (kbd "M-.") 'find-tag)
   (define-key evil-normal-state-map (kbd "M-*") 'pop-tag-mark)
 
+  ;; Vim-like bindings
+  (define-key evil-normal-state-map (kbd ",ev") #'open-emacsd-init-file)
+  (define-key evil-normal-state-map (kbd ",,") #'xref-find-definitions)
+  (define-key evil-normal-state-map (kbd ",w") #'helm-buffers-list)
+
   ;; change mode-line color by evil state
   (defun switch-modeline-color-on-insert-command-mode ()
     (let* ((default-color (cons (face-background 'mode-line)

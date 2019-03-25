@@ -17,3 +17,14 @@
 (defun highlight-trailing-whitespaces-maybe ()
   (when (derived-mode-p 'ruby-mode) (setq show-trailing-whitespace t)
 	(derived-mode-p 'c-mode-common-hook) (setq show-trailing-whitespace t)))
+
+;;& Init files
+(defun open-emacsd-init-file ()
+  "Open ~/.emacs.d/init.el"
+  (interactive)
+  (find-file "~/.emacs.d/init.el"))
+
+(defun open-emacsd-custom-file ()
+  "Open ~/.emacs.d/custom/custom.el"
+  (interactive)
+  (find-file "~/.emacs.d/custom/custom.el"))

@@ -3,6 +3,7 @@
   :commands lsp
   :hook
   (elixir-mode . lsp)
+  (ruby-mode . lsp)
   :custom
   (lsp-auto-guess-root t)
   :init

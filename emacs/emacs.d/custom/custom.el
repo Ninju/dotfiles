@@ -7,17 +7,6 @@
 ;; START CORE
 ;; "CORE" is anything that is included in the base emacs installation and thus will not block init on a fresh install.
 
-;;& Init files
-(defun open-emacsd-init-file ()
-  "Open ~/.emacs.d/init.el"
-  (interactive)
-  (find-file "~/.emacs.d/init.el"))
-
-(defun open-emacsd-custom-file ()
-  "Open ~/.emacs.d/custom/custom.el"
-  (interactive)
-  (find-file "~/.emacs.d/custom/custom.el"))
-
 (global-set-key (kbd "C-c e i") 'open-emacsd-init-file)
 (global-set-key (kbd "C-c e e") 'open-emacsd-custom-file)
 
@@ -67,11 +56,6 @@
 (package-install #'helm))
 
 ;; END PACKAGE CONFIG
-
-;; Vim-like bindings
-(define-key evil-normal-state-map (kbd ",ev") #'open-emacsd-init-file)
-(define-key evil-normal-state-map (kbd ",,") #'xref-find-definitions)
-(define-key evil-normal-state-map (kbd ",w") #'helm-buffers-list)
 
 (global-set-key (kbd "C-c a g") #'ag)
 
