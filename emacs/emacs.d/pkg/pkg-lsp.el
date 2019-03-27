@@ -4,6 +4,7 @@
   :hook
   (elixir-mode . lsp)
   (ruby-mode . lsp)
+  (python-mode . lsp)
   :custom
   (lsp-auto-guess-root t)
   (lsp-prefer-flymake :none)
@@ -23,6 +24,8 @@
 (use-package company-lsp
   :ensure t
   :commands company-lsp
+  :config
+  (push 'company-lsp company-backends)
   )
 
 (provide 'pkg-lsp)
