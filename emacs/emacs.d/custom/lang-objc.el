@@ -1,8 +1,10 @@
 ;; company-yasnippet is particularly useful for Xcode so comes first
 ;; TODO: Check for Ruby
-(add-to-list
- #'company-backends
- #'(company-yasnippet company-dabbrev-code company-gtags company-etags company-keywords))
+;; (add-to-list
+ ;; #'company-backends
+ ;; #'(company-yasnippet company-dabbrev-code company-gtags company-etags company-keywords))
+
+;; Company backends may be causing slowdown when using LSP for languages such as Ruby. See: https://github.com/emacs-lsp/lsp-mode/issues/721
 
 ;;- Key binding for Objective-C, C, C++
 (global-set-key (kbd "C-c a t") 'ff-find-other-file)

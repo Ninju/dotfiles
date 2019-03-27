@@ -6,6 +6,7 @@
   (ruby-mode . lsp)
   :custom
   (lsp-auto-guess-root t)
+  (lsp-prefer-flymake :none)
   :init
   (add-to-list 'exec-path "~/src/downloads/elixir-ls")
   :config
@@ -22,7 +23,6 @@
 (use-package company-lsp
   :ensure t
   :commands company-lsp
-  :after lsp-mode
   )
 
 (provide 'pkg-lsp)
