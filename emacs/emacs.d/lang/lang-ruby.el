@@ -33,8 +33,6 @@
   :config
   ;;  (add-hook 'ruby-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
   (require 'dap-ruby)
-  (dap-mode)
-  (dap-ui-mode)
   )
 
 (use-package rspec-mode
