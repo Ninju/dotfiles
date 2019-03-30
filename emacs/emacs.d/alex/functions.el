@@ -28,3 +28,19 @@
   "Open ~/.emacs.d/custom/custom.el"
   (interactive)
   (find-file "~/.emacs.d/custom/custom.el"))
+
+(defun open-emacsd-machine-specific-config-file ()
+  "Open ~/.emacs.d/init.el"
+  (interactive)
+  (find-file "~/.emacs.d/core/core-machine-specific-ui.el"))
+
+;; Source: https://emacsredux.com/blog/2013/03/27/copy-filename-to-the-clipboard/
+(defun alex-copy-file-name-to-clipboard ()
+  "Copy the current buffer file name to the clipboard."
+  (interactive)
+  (let ((filename (if (equal major-mode 'dired-mode)
+                      default-directory
+                    (buffer-file-name))))
+    (when filename
+      (kill-new filename)
+      (message "Copied buffer file name '%s' to the clipboard." filename))))

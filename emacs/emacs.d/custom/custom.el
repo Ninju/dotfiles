@@ -9,6 +9,7 @@
 
 (global-set-key (kbd "C-c e i") 'open-emacsd-init-file)
 (global-set-key (kbd "C-c e e") 'open-emacsd-custom-file)
+(global-set-key (kbd "C-c e f") 'open-emacsd-machine-specific-config-file)
 
 ;; END CORE
 
@@ -62,7 +63,8 @@
 (eval-after-load 'clojure-mode
   '(sayid-setup-package))
 
+(require 'evil)
 (define-key evil-normal-state-map (kbd ",l") #'aj-toggle-fold)
 (define-key evil-normal-state-map (kbd ",/") #'evil-search-highlight-persist-remove-all)
 
-(global-set-key (kbd "C-x b") #'helm-buffers-list)
+(global-set-key (kbd "C-x y") 'alex-copy-file-name-to-clipboard)
