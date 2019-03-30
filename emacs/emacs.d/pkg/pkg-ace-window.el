@@ -6,8 +6,8 @@
   ("C-x w s" . ace-swap-window)
   :general
   (:states 'normal
-	   ", x o" 'ace-select-window
-	   ", x s" 'ace-swap-window)
+	   ", o" 'ace-select-window
+	   ", s" 'ace-swap-window)
   )
 
 (provide 'pkg-ace-window)
