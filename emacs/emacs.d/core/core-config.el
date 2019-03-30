@@ -7,5 +7,5 @@
       )
 
 ;; This is so that Emacs picks up my bash aliases, e.g. python -> python3
-(setq shell-file-name "bash")
-(setq shell-command-switch "-ic")
+;; (setq shell-file-name "bash")
+;; (setq shell-command-switch "-ic")
