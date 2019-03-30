@@ -1,15 +1,17 @@
-(use-package helm-projectile
-  :ensure t)
-
 (use-package projectile
+  :demand t
   :ensure t
-  :requires ag
+  :bind
+  ("C-c p s" . projectile-ag)
+  ("C-c p d" . projectile-dired)
+  ("C-c p l" . projectile-ibuffer)
+  :general
+  (:states 'normal
+	   ", p s" 'projectile-ag
+	   ", p d" 'projectile-dired
+	   ", p l" 'projectile-ibuffer)
   :config
-  (defun is-project (name)
-    (s-suffix? (concat name "/") (projectile-project-root)))
-
-  (add-hook 'projectile-global-mode '(global-set-key (kbd "C-c p f") 'helm-projectile-find-file))
   (projectile-global-mode)
-
-  (global-set-key (kbd "C-c p s") #'projectile-ag)
   )
+
+(provide 'pkg-projectile)
