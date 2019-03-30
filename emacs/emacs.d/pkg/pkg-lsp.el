@@ -5,14 +5,15 @@
   (elixir-mode . lsp)
   (ruby-mode . lsp)
   (python-mode . lsp)
+  :general
+  (:states 'normal
+	   ", ," 'lsp-find-definition
+	   ", ." 'pop-tag-mark)
   :custom
   (lsp-auto-guess-root t)
   (lsp-prefer-flymake :none)
   :init
   (add-to-list 'exec-path "~/src/downloads/elixir-ls")
-  :config
-  (evil-define-key 'normal lsp-mode-map ",," 'lsp-find-definition)
-  (evil-define-key 'normal lsp-mode-map ",." 'pop-tag-mark)
   )
 
 (use-package lsp-ui
