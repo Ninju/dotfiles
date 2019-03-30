@@ -29,7 +29,7 @@
  '(lsp-prefer-flymake :none)
  '(package-selected-packages
    (quote
-    (pipenv poly-R R circleci build-status rspec-mode rainbow-delimeters rainbow-delimeters-mode ace-jump ace-jump-mode exunit dap-ui-mode dap dap-mode lsp company-mode winner-mode ace-window ibuffer-projectile dired-sidebar ibuffer-sidebar ibuffer-vc noflet color-theme-buffer-local load-theme-buffer-local smart-shift highlight-indent-guides flymake-yaml yaml-imenu yaml-mode yaml-tomato rbenv go-mode rainbow-delimiters rainbow-mode company-ghc haskell-mode helm-hoogle scion company-lsp lsp-mode lsp-ocaml lsp-ui reason-mode cider cider-eval-sexp-fu sotclojure merlin merlin-eldoc tuareg web-mode treemacs alchemist elixir-mode s popup pkg-info helm-core flycheck epl async yasnippet company-c-headers objc-font-lock xclip exec-path-from-shell ecb undo-tree company w3m which-key ag helm helm-ag helm-flx helm-fuzzier helm-fuzzy-find helm-projectile helm-swoop projectile evil)))
+    (org-agenda general magit pipenv poly-R R circleci build-status rspec-mode rainbow-delimeters rainbow-delimeters-mode ace-jump ace-jump-mode exunit dap-ui-mode dap dap-mode lsp company-mode winner-mode ace-window ibuffer-projectile dired-sidebar ibuffer-sidebar ibuffer-vc noflet color-theme-buffer-local load-theme-buffer-local smart-shift highlight-indent-guides flymake-yaml yaml-imenu yaml-mode yaml-tomato rbenv go-mode rainbow-delimiters rainbow-mode company-ghc haskell-mode helm-hoogle scion company-lsp lsp-mode lsp-ocaml lsp-ui reason-mode cider cider-eval-sexp-fu sotclojure merlin merlin-eldoc tuareg web-mode treemacs alchemist elixir-mode s popup pkg-info helm-core flycheck epl async yasnippet company-c-headers objc-font-lock xclip exec-path-from-shell ecb undo-tree company w3m which-key ag helm helm-ag helm-flx helm-fuzzier helm-fuzzy-find helm-projectile helm-swoop projectile evil)))
  '(solarized-high-contrast-mode-line nil)
  '(yas-snippet-dirs (quote ("/Users/alex/.emacs.d/snippets"))))
 (custom-set-faces
@@ -51,6 +51,12 @@
 (mapc 'load (file-expand-wildcards "~/.emacs.d/site-lisp/*.el"))
 (mapc 'load (file-expand-wildcards "~/.emacs.d/core/*.el"))
 (mapc 'load (file-expand-wildcards "~/.emacs.d/alex/*.el"))
+
+;; Need a better general solution for the load order dependency
+(load "~/.emacs.d/pkg/pkg-general.el")
+(load "~/.emacs.d/pkg/pkg-evil.el")
+
+
 (mapc 'load (file-expand-wildcards "~/.emacs.d/pkg/*.el"))
 (mapc 'load (file-expand-wildcards "~/.emacs.d/lang/*.el"))
 (mapc 'load (file-expand-wildcards "~/.emacs.d/custom/*.el"))
