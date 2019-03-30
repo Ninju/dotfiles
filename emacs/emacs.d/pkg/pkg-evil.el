@@ -1,17 +1,15 @@
 (use-package evil
   :ensure t
+  :general
+  (:states 'normal
+	   "M-." 'find-tag
+	   "M-*" 'pop-tag-mark
+
+	   ", e v" 'open-emacsd-init-file
+	   ", ," 'xref-find-definitions)
   :config
   (setq evil-want-C-i-jump nil)
   (evil-mode 1)
-
-  ;; Reinstate Emacs Tags key bindings
-  (define-key evil-normal-state-map (kbd "M-.") 'find-tag)
-  (define-key evil-normal-state-map (kbd "M-*") 'pop-tag-mark)
-
-  ;; Vim-like bindings
-  (define-key evil-normal-state-map (kbd ",ev") #'open-emacsd-init-file)
-  (define-key evil-normal-state-map (kbd ",,") #'xref-find-definitions)
-  (define-key evil-normal-state-map (kbd ",w") #'helm-buffers-list)
 
   ;; change mode-line color by evil state
   (defun switch-modeline-color-on-insert-command-mode ()
