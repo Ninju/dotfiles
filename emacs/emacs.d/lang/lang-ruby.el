@@ -37,11 +37,13 @@
 
 (use-package rspec-mode
   :ensure t
+  :general
+  (:states 'normal
+	   ", C-t C-t" 'rspec-verifiable-mode-keymap
+	   ", C-t C-d" 'rspec-dired-mode-keymap
+	   ", t k" 'rspec-verify-method
+	   ", t s" 'rspec-verify-single
+	   ", t d" 'rspec-toggle-example-pendingness)
   :config
-  (define-key evil-normal-state-map (kbd ", t") 'rspec-verifiable-mode-keymap)
-  (define-key evil-normal-state-map (kbd ", t") 'rspec-dired-mode-keymap)
-
-  (evil-define-key 'normal 'rspec-mode (kbd ", t k") 'rspec-verify-method)
-  (evil-define-key 'normal 'rspec-mode (kbd ", t s") 'rspec-verify-single)
-  (evil-define-key 'normal 'rspec-mode (kbd ", t d") 'rspec-toggle-example-pendingness)
+  (rspec-verifiable-mode)
   )
