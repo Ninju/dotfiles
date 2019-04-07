@@ -30,3 +30,13 @@
   ;; TODO: fix modeline color switching on INSERT/COMMAND mode is not working properly
   ;; (add-hook 'post-command-hook 'switch-modeline-color-on-insert-command-mode)
   )
+
+(use-package evil-cleverparens
+  :ensure t
+  :commands (evil-cleverparens-mode)
+  :hook
+  (clojure-mode . evil-cleverparens-mode)
+  (lisp-mode . evil-cleverparens-mode)
+  )
+
+(provide 'pkg-evil)
