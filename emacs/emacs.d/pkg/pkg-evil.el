@@ -5,6 +5,8 @@
 	   "M-." 'find-tag
 	   "M-*" 'pop-tag-mark
 
+	   ", d" 'dired
+
 	   ", e v" 'open-emacsd-init-file
 	   ", ," 'xref-find-definitions)
   :config
