@@ -10,6 +10,7 @@
 (global-set-key (kbd "C-c e i") 'open-emacsd-init-file)
 (global-set-key (kbd "C-c e e") 'open-emacsd-custom-file)
 (global-set-key (kbd "C-c e f") 'open-emacsd-machine-specific-config-file)
+(global-set-key (kbd "C-c e l c") 'open-lang-clojure-file)
 
 ;; END CORE
 
@@ -59,9 +60,6 @@
 ;; END PACKAGE CONFIG
 
 (global-set-key (kbd "C-c a g") #'ag)
-
-(eval-after-load 'clojure-mode
-  '(sayid-setup-package))
 
 (require 'evil)
 (define-key evil-normal-state-map (kbd ",l") #'aj-toggle-fold)

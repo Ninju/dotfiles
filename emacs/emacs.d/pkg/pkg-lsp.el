@@ -3,7 +3,7 @@
   :commands lsp
   :hook
   (elixir-mode . lsp)
-  (ruby-mode . lsp)
+  ;; (ruby-mode . lsp)
   (python-mode . lsp)
   :general
   (:states 'normal

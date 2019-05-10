@@ -1,11 +1,16 @@
 (use-package clojure-mode
   :ensure t
+  :demand t
   :mode (("\\.clj\\'" . clojure-mode)
          ("\\.edn$" . clojure-mode))
   :general
   (:states 'normal
     ", c j q" 'cider-quit
-    ", c j i" 'ef-cider-jack-in)
+    ", c j i" 'ef-cider-jack-in
+    ", c j r" 'cider-restart
+    ", c n a" 'cljr-add-require-to-ns
+    ", c p a" 'cljr-add-project-dependency)
+
   :config
   (setq clojure--prettify-symbols-alist
 	'(("fn" . ?λ)))
@@ -20,6 +25,7 @@
 
 (use-package cider
   :ensure t
+  :demand t
   :general
   (:states 'normal
     ", ," 'cider-find-var
