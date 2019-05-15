@@ -1,0 +1,48 @@
+#!/usr/bin/env python3
+#
+#   Copyright (c) 2019 Alex Watt
+#   Licensed under the terms of the GNU GPL v2 only.
+#
+# switch_keyboard_layout is an i3blocks blocklet script to manage your
+# current keyboard layout
+
+import os
+from subprocess import call,check_output
+
+def get_current_layout():
+    """Retrieves the current keyboard layout using setxkbmap"""
+    keyboard_data = check_output(["setxkbmap", "-query"])
+    layout_at = keyboard_data.index(b'layout')
+    layout = keyboard_data[layout_at:].splitlines()[0].split()[-1]
+
+    return layout.decode("utf-8")
+
+def next_layout(current_layout):
+
+    if 'BLOCK_INSTANCE' not in os.environ.keys():
+        return current_layout
+
+    layouts = os.environ['BLOCK_INSTANCE'].split(',')
+    cur_idx = layouts.index(current_layout)
+    nxt_idx = cur_idx + 1
+
+    if nxt_idx >= len(layouts):
+        nxt_idx = 0
+
+    return layouts[nxt_idx]
+
+def set_layout(layout):
+    call(['setxkbmap', '-layout', layout])
+
+def print_layout(layout):
+    print("KEY {:s}".format(layout))
+    print("KEY {:s}".format(layout))
+
+# blocklet was clicked
+if 'BLOCK_BUTTON' in os.environ.keys():
+    layout = next_layout(get_current_layout())
+    set_layout(layout)
+else:
+    layout = get_current_layout()
+
+print_layout(layout)
