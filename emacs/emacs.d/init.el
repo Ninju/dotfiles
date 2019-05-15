@@ -19,17 +19,18 @@
  '(custom-safe-themes t)
  '(dap-ruby-debug-program
    (quote
-    ("node" "~/src/github.com/rubyide/vscode-ruby/out/debugger/main.js")))
+    ("node" "~/src/github.com/rubyide/vscode-ruby/out/debugger/main.js")) t)
  '(ecb-options-version "2.50")
  '(haskell-process-auto-import-loaded-modules t)
  '(haskell-process-log t)
  '(haskell-process-suggest-remove-import-lines t)
  '(haskell-tags-on-save nil)
  '(lsp-auto-guess-root t)
+ '(lsp-clients-python-command (quote ("pyls")))
  '(lsp-prefer-flymake :none)
  '(package-selected-packages
    (quote
-    (org-agenda general magit pipenv poly-R R circleci build-status rspec-mode rainbow-delimeters rainbow-delimeters-mode ace-jump ace-jump-mode exunit dap-ui-mode dap dap-mode lsp company-mode winner-mode ace-window ibuffer-projectile dired-sidebar ibuffer-sidebar ibuffer-vc noflet color-theme-buffer-local load-theme-buffer-local smart-shift highlight-indent-guides flymake-yaml yaml-imenu yaml-mode yaml-tomato rbenv go-mode rainbow-delimiters rainbow-mode company-ghc haskell-mode helm-hoogle scion company-lsp lsp-mode lsp-ocaml lsp-ui reason-mode cider cider-eval-sexp-fu sotclojure merlin merlin-eldoc tuareg web-mode treemacs alchemist elixir-mode s popup pkg-info helm-core flycheck epl async yasnippet company-c-headers objc-font-lock xclip exec-path-from-shell ecb undo-tree company w3m which-key ag helm helm-ag helm-flx helm-fuzzier helm-fuzzy-find helm-projectile helm-swoop projectile evil)))
+    (cider-repl evil-cleverparens org-agenda general magit pipenv poly-R R circleci build-status rspec-mode rainbow-delimeters rainbow-delimeters-mode ace-jump ace-jump-mode exunit dap-ui-mode dap dap-mode lsp company-mode winner-mode ace-window ibuffer-projectile dired-sidebar ibuffer-sidebar ibuffer-vc noflet color-theme-buffer-local load-theme-buffer-local smart-shift highlight-indent-guides flymake-yaml yaml-imenu yaml-mode yaml-tomato rbenv go-mode rainbow-delimiters rainbow-mode company-ghc haskell-mode helm-hoogle scion company-lsp lsp-mode lsp-ocaml lsp-ui reason-mode cider cider-eval-sexp-fu sotclojure merlin merlin-eldoc tuareg web-mode treemacs alchemist elixir-mode s popup pkg-info helm-core flycheck epl async yasnippet company-c-headers objc-font-lock xclip exec-path-from-shell ecb undo-tree company w3m which-key ag helm helm-ag helm-flx helm-fuzzier helm-fuzzy-find helm-projectile helm-swoop projectile evil)))
  '(solarized-high-contrast-mode-line nil)
  '(yas-snippet-dirs (quote ("/Users/alex/.emacs.d/snippets"))))
 (custom-set-faces
