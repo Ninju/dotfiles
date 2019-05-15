@@ -29,6 +29,11 @@
   (interactive)
   (find-file "~/.emacs.d/custom/custom.el"))
 
+(defun open-lang-clojure-file ()
+  "Open ~/.emacs.d/lang/lang-clojure.el"
+  (interactive)
+  (find-file "~/.emacs.d/lang/lang-clojure.el"))
+
 (defun open-emacsd-machine-specific-config-file ()
   "Open ~/.emacs.d/init.el"
   (interactive)
