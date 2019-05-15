@@ -5,7 +5,10 @@
   :general
   (:states 'normal
     ", c j q" 'cider-quit
-    ", c j i" 'ef-cider-jack-in)
+    ", c j i" 'ef-cider-jack-in
+    ", c j r" 'cider-restart
+    ", c p a" 'cljr-add-project-dependency
+    ", c n a" 'cljr-add-require-to-ns)
   :config
   (setq clojure--prettify-symbols-alist
 	'(("fn" . ?λ)))
