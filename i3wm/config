@@ -130,6 +130,9 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
+# next/previous workspace
+bindsym $mod+Tab workspace back_and_forth
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -148,6 +151,26 @@ mode "$keyboardlayout" {
      bindsym Escape mode "default"
      bindsym Return mode "default"
 }
+
+bindsym $mod+u border none
+bindsym $mod+Shift+u border normal 2
+
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
+
+bindsym $mod+i exec i3-input
+
+bindsym $mod+Shift+s move workspace to output left
+
+for_window [class=".*"] border pixel 5
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec amixer -q sset Master 5%+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q sset Master 5%- unmute
+bindsym XF86AudioMute exec amixer -q sset Master toggle
 
 # set $displayMode "Set display mode [e]xternal [l]eft [r]ight"
 # bindsym $mod+x mode $displayMode
