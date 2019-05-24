@@ -15,10 +15,12 @@ git config --global --replace-all alias.lg 'log --oneline'
 git config --global --replace-all alias.logg 'log --graph'
 git config --global --replace-all alias.lgg 'log --oneline --graph'
 
+git config --global --replace-all alias.current-branch 'rev-parse --abbrev-ref HEAD'
+
 alias gong="git gong"
 alias gianf="git gianf"
 alias gut="git status"
 alias st="git status"
-
+alias gbac="git branch | fzf | awk '{print $2}' | xargs git checkout"
 
 export PATH="${HOME}/.env/git-aliae/bin:$PATH"
