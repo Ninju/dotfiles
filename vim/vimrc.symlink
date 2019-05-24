@@ -1,13 +1,18 @@
 call plug#begin()
 Plug 'jlanzarotta/bufexplorer'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fireplace'
 Plug 'scrooloose/nerdtree'
 Plug 'airblade/vim-gitgutter'
 Plug 'lifepillar/vim-solarized8'
 
 Plug'triglav/vim-visual-increment'
 
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
 Plug 'majutsushi/tagbar'
+
+Plug 'jremmen/vim-ripgrep'
 
 Plug 'reasonml-editor/vim-reason-plus'
 
@@ -267,6 +272,8 @@ let g:ctrlp_clear_cache_on_exit=0
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|deps\|_build'
 
 runtime macros/matchit.vim
+
+nnoremap <silent> <C-p> :FZF<CR>
 
 
 " let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
