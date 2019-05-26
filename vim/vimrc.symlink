@@ -269,9 +269,11 @@ map <C-x>3 :vsplit<CR>
 map <C-x>2 :split<CR>
 map <C-x><C-k> :wincmd q<CR>
 
+" Does not work in Command mode
+map <C-g> <Esc>
+
 " let g:rspec_command = 'call Send_to_Tmux("bundle exec rspec {spec}\n")'
 let g:rspec_command = "./bin/rspec {spec}\n"
-
 let NERDSpaceDelims=1
 
 " Don't clear Ctrl+P cache on exit
