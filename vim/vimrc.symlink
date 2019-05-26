@@ -268,7 +268,9 @@ map <C-x><C-b> :BufExplorer<CR>
 map <C-x>o :wincmd w<CR>
 map <C-x>3 :vsplit<CR>
 map <C-x>2 :split<CR>
-map <C-x><C-k> :wincmd q<CR>
+map <C-x><C-k> :wincmd q<CR> " TODO: remap to kill buffer, not quit window
+map <C-x>0 :wincmd q<CR>
+map <C-x>1 :wincmd o<CR>
 
 " Does not work in Command mode
 map <C-g> <Esc>
