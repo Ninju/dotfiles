@@ -259,8 +259,10 @@ map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>d :call RunLastSpec()<CR>
 map <Leader>p :call RunAllSpecs()<CR>
 
-map <Leader>1 :bn<CR>
-map <Leader>2 :bp<CR>
+" Emacs keybindings
+map <C-x><left> :bp<CR>
+map <C-x><right> :bn<CR>
+map <C-x><C-b> :BufExplorer<CR>
 
 " let g:rspec_command = 'call Send_to_Tmux("bundle exec rspec {spec}\n")'
 let g:rspec_command = "./bin/rspec {spec}\n"
