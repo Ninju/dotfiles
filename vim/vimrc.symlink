@@ -280,6 +280,9 @@ nmap ,. <C-o>
 vmap ,, <C-]>
 vmap ,. <C-o>
 
+" Projectile like bindings
+nmap <Leader>pf :FZF<CR>
+
 " let g:rspec_command = 'call Send_to_Tmux("bundle exec rspec {spec}\n")'
 let g:rspec_command = "./bin/rspec {spec}\n"
 let NERDSpaceDelims=1
