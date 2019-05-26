@@ -49,7 +49,7 @@ nmap <silent> <leader>eev :edit $MYVIMRC<CR>
 nmap <silent> <leader>ev :edit ~/.vimrc<CR>
 nmap <silent> <leader>sv :source $MYVIMRC<CR>
 
-nmap <silent> <leader>w :BufExplorer<CR>
+map <silent> <leader>w :BufExplorer<CR>
 
 nmap <silent> <leader>/ :nohlsearch<CR>
 
