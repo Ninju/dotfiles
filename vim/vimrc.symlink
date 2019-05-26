@@ -275,6 +275,11 @@ map <C-x>1 :wincmd o<CR>
 " Does not work in Command mode
 map <C-g> <Esc>
 
+nmap ,, <C-]>
+nmap ,. <C-o>
+vmap ,, <C-]>
+vmap ,. <C-o>
+
 " let g:rspec_command = 'call Send_to_Tmux("bundle exec rspec {spec}\n")'
 let g:rspec_command = "./bin/rspec {spec}\n"
 let NERDSpaceDelims=1
