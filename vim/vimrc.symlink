@@ -9,6 +9,7 @@ Plug 'lifepillar/vim-solarized8'
 Plug'triglav/vim-visual-increment'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 Plug 'majutsushi/tagbar'
 
@@ -282,8 +283,8 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|deps\|_build'
 
 runtime macros/matchit.vim
 
+let g:fzf_layout = { 'right': '~50%' }
 nnoremap <silent> <C-p> :FZF<CR>
-
 
 " let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
 " execute "set rtp+=" . g:opamshare . "/merlin/vim"
