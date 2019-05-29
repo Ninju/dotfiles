@@ -223,3 +223,5 @@ bar {
         # status_command ~/.config/i3/status_bar.sh
         status_command i3blocks
 }
+
+exec emacs --daemon
