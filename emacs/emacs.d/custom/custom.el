@@ -97,11 +97,8 @@
      (concat "Hidden Mode Line Mode enabled.  "
              "Use M-x hidden-mode-line-mode to make the mode-line appear."))))
 
-;; Activate hidden-mode-line-mode
-(hidden-mode-line-mode 1)
-
 ;; If you want to hide the mode-line in all new buffers
-(add-hook 'after-change-major-mode-hook 'hidden-mode-line-mode)
+;; (add-hook 'after-change-major-mode-hook 'hidden-mode-line-mode)
 
 ;; Alternatively, you can paint your mode-line in White but then
 ;; you'll have to manually paint it in black again
@@ -124,6 +121,11 @@
 
 (mode-line-in-header)
 (global-set-key (kbd "C-x j SPC") 'hidden-mode-line-mode)
+
+;; Activate hidden-mode-line-mode
+(hidden-mode-line-mode 0)
+(setq-default header-line-format mode-line-format-bak)
+(setq-default mode-line-format nil)
 
 ;; A small minor mode to use a big fringe
 (defvar bzg-big-fringe-mode nil)
@@ -158,5 +160,5 @@
 ;; (setq default-cursor-type 'hbar)
 
 ;; Get rid of the indicators in the fringe
-(mapcar (lambda(fb) (set-fringe-bitmap-face fb 'org-hide))
-        fringe-bitmaps)
+;; (mapcar (lambda(fb) (set-fringe-bitmap-face fb 'org-hide))
+        ;; fringe-bitmaps)
