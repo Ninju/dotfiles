@@ -1,8 +1,3 @@
 #!/usr/bin/env bash
 
-if [ -t 0 ]
-then
-  emacsclient -nw
-else
-  emacsclient --create-frame
-fi
+emacsclient --create-frame
