@@ -15,3 +15,5 @@ export TERMINAL=termite
 export WM_SCRIPTS_DIR=$HOME/.config/i3blocks
 export PATH="~/src/reason-language-server:$PATH"
 export PATH="${HOME}/.screenlayout:$PATH"
+export EDITOR=ecu
+
