@@ -13,6 +13,9 @@
   (setq clojure--prettify-symbols-alist
 	'(("fn" . ?λ)))
 
+  (modify-syntax-entry ?_ "w" clojure-mode-syntax-table)
+  (modify-syntax-entry ?- "w" clojure-mode-syntax-table)
+
   (defun ef-cider-jack-in (params)
     "Quit cider if running and jack in again"
     (interactive "P")
@@ -84,6 +87,7 @@
 
 (use-package clj-refactor
   :ensure t
+  :defer t
   :after cider
   :hook
   (clojure-mode . clj-refactor-mode)
