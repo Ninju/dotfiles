@@ -142,17 +142,17 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-set $keyboardLayout Set keyboard layout [e]nglish [a]ustralian [u]kraine [r]ussian
-bindsym $mod+o mode "$keyboardlayout"
-mode "$keyboardlayout" {
-     bindsym e exec setxkbmap gb
-     bindsym a exec setxkbmap au
-     bindsym u exec setxkbmap ua
-     bindsym r exec setxkbmap ru
-
-     bindsym Escape mode "default"
-     bindsym Return mode "default"
-}
+ #set $keyboardLayout Set keyboard layout [e]nglish [a]ustralian [u]kraine [r]ussian
+ #bindsym $mod+o mode "$keyboardlayout"
+ #mode "$keyboardlayout" {
+ #     bindsym e exec setxkbmap gb
+ #     bindsym a exec setxkbmap au
+ #     bindsym u exec setxkbmap ua
+ #     bindsym r exec setxkbmap ru
+ #
+ #     bindsym Escape mode "default"
+ #     bindsym Return mode "default"
+ #}
 
 bindsym $mod+u border none
 bindsym $mod+Shift+u border normal 2
