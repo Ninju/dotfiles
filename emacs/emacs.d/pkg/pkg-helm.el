@@ -2,7 +2,7 @@
   :ensure t
   :demand t
   :bind
-  ("M-x" . helm-M-x)
+  ;; ("M-x" . helm-M-x)
   ("C-c , i m" . helm-imenu-in-all-buffers)
   ("C-c , i i" . helm-imenu)
 
