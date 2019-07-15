@@ -10,7 +10,7 @@
   ];
 
   home.packages = with pkgs; [
-    pkgs.ag
+    ag
   ];
 
   # Let Home Manager install and manage itself.
