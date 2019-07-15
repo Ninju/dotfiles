@@ -14,6 +14,7 @@
     openjdk8
     leiningen
     clojure
+    qutebrowser
   ];
 
   # Let Home Manager install and manage itself.
