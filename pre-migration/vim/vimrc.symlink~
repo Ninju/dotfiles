@@ -1,44 +1,3 @@
-call plug#begin()
-Plug 'jlanzarotta/bufexplorer'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fireplace'
-Plug 'tpope/vim-salve'
-Plug 'scrooloose/nerdtree'
-Plug 'airblade/vim-gitgutter'
-Plug 'lifepillar/vim-solarized8'
-
-Plug 'clojure-vim/async-clj-omni'
-
-Plug'triglav/vim-visual-increment'
-
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-
-Plug 'majutsushi/tagbar'
-
-Plug 'jremmen/vim-ripgrep'
-
-Plug 'reasonml-editor/vim-reason-plus'
-
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
-
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
-" for neovim
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" for vim 8 with python
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-  " the path to python3 is obtained through executing `:echo exepath('python3')` in vim
-  let g:python3_host_prog = "/usr/local/bin/python3"
-endif
-call plug#end()
 let g:deoplete#keyword_patterns = {}
 let g:deoplete#keyword_patterns.clojure = '[\w!$%&*+/:<=>?@\^_~\-\.#]*'
 
@@ -401,12 +360,12 @@ let g:tagbar_type_go = {
 	\ 'ctagsargs' : '-sort -silent'
         \ }
 
-colorscheme solarized8
+" colorscheme solarized8
 
 set backup
 set undofile
 set swapfile
 
-set backupdir=~/.vim/files-backup//,/tmp/vim-backup-files//
-set directory=~/.vim/files-swap//,/tmp/vim-swap-files//
-set undodir=~/.vim/files-undo//,/tmp/vim-undo-files//
+#set backupdir=~/.vim/files-backup//,/tmp/vim-backup-files//
+#set directory=~/.vim/files-swap//,/tmp/vim-swap-files//
+#set undodir=~/.vim/files-undo//,/tmp/vim-undo-files//
