@@ -7,7 +7,7 @@
     vimAlias = true;
 
     configure = {
-# customRC = builtins.readFile ./pre-migration/vim/vimrc.symlink;
+      customRC = builtins.readFile ../pre-migration/vim/vimrc.symlink;
     };
   };
 }
