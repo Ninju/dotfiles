@@ -25,5 +25,6 @@
 
   home.sessionVariables = {
     TERMINAL = "termite";
+    EDITOR = "nvim";
   };
 }

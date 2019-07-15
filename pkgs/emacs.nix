@@ -29,7 +29,6 @@
     ];
   };
 
-
   home.file.".emacs.d" = {
     source = ../pre-migration/emacs/emacs.d;
     recursive = true;
