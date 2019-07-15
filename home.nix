@@ -11,6 +11,9 @@
 
   home.packages = with pkgs; [
     ag
+    openjdk8
+    leiningen
+    clojure
   ];
 
   # Let Home Manager install and manage itself.
