@@ -9,6 +9,10 @@
     ./pkgs/emacs.nix
   ];
 
+  home.packages = with pkgs; [
+    pkgs.ag
+  ];
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
