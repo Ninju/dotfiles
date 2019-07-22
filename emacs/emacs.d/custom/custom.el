@@ -119,13 +119,13 @@
            header-line-format nil))
    (set-window-buffer nil (current-buffer)))
 
-(mode-line-in-header)
+;; (mode-line-in-header)
 (global-set-key (kbd "C-x j SPC") 'hidden-mode-line-mode)
 
 ;; Activate hidden-mode-line-mode
 (hidden-mode-line-mode 0)
-(setq-default header-line-format mode-line-format-bak)
-(setq-default mode-line-format nil)
+;; (setq-default header-line-format mode-line-format-bak)
+;; (setq-default mode-line-format nil)
 
 ;; A small minor mode to use a big fringe
 (defvar bzg-big-fringe-mode nil)

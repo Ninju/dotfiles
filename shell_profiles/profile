@@ -7,13 +7,9 @@ setxkbmap -option "ctrl:nocaps"
 setxkbmap -option altwin:swap_alt_win
 setxkbmap -layout au
 
-setxkbmap -option -device 15
-setxkbmap -option "ctrl:nocaps" -device 15
-setxkbmap -layout au -device 15
+# setxkbmap -option -device 15
+# setxkbmap -option "ctrl:nocaps" -device 15
+# setxkbmap -layout au -device 15
 
 export TERMINAL=termite
 export WM_SCRIPTS_DIR=$HOME/.config/i3blocks
-export PATH="~/src/reason-language-server:$PATH"
-export PATH="${HOME}/.screenlayout:$PATH"
-export EDITOR=ecu
-

@@ -1,5 +1,5 @@
 *.log
-./emacs/emacs.d/backup
+./emacs/emacs.d/backup/*
 .lsp-session-v1
 local-emacsd-backup
 local-vim-backup

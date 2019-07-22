@@ -1,8 +1,8 @@
 ;; Hide the tool bar
-(tool-bar-mode -1)
+;; (tool-bar-mode -1)
 
 ;; Hide the menu bar
-(menu-bar-mode -1)
+;; (menu-bar-mode -1)
 
 ;; Highlight current line
 (global-hl-line-mode +1)

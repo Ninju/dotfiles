@@ -1,3 +1,10 @@
 #!/usr/bin/env bash
 
-emacsclient --create-frame
+# if [ -t 0 ]
+# then
+#   ec "$@"
+# else
+#   emacsclient --create-frame "$@"
+# fi
+
+emacsclient --create-frame "$@"

@@ -1,0 +1,1 @@
+/home/alex/src/github.com/Ninju/dotfiles/emacs/emacs.d

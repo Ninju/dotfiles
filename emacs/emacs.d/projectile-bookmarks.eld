@@ -1,0 +1,1 @@
+("~/src/github.com/Ninju/dotfiles/" "~/src/github.com/uswitch/affiliate-products-api/" "~/src/github.com/uswitch/affiliate-feeds/")
