@@ -5,7 +5,7 @@
 ;; You may delete these explanatory comments.
 (package-initialize)
 
-(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+(setq package-archives '(("gnu" . "http://mirrors.163.com/elpa/gnu/")
                          ("melpa" . "https://melpa.org/packages/")
 			 ("org" . "http://orgmode.org/elpa/")))
 (custom-set-variables
@@ -27,9 +27,10 @@
  '(lsp-auto-guess-root t)
  '(lsp-clients-python-command (quote ("pyls")))
  '(lsp-prefer-flymake :none)
+ '(lsp-pyls-server-command (quote ("pyls")))
  '(package-selected-packages
    (quote
-    (clj-refactor cider-repl evil-cleverparens org-agenda general magit pipenv poly-R R circleci build-status rspec-mode rainbow-delimeters rainbow-delimeters-mode ace-jump ace-jump-mode exunit dap-ui-mode dap dap-mode lsp company-mode winner-mode ace-window ibuffer-projectile dired-sidebar ibuffer-sidebar ibuffer-vc noflet color-theme-buffer-local load-theme-buffer-local smart-shift highlight-indent-guides flymake-yaml yaml-imenu yaml-mode yaml-tomato rbenv go-mode rainbow-delimiters rainbow-mode company-ghc haskell-mode helm-hoogle scion company-lsp lsp-mode lsp-ocaml lsp-ui reason-mode cider cider-eval-sexp-fu sotclojure merlin merlin-eldoc tuareg web-mode treemacs alchemist elixir-mode s popup pkg-info helm-core flycheck epl async yasnippet company-c-headers objc-font-lock xclip exec-path-from-shell ecb undo-tree company w3m which-key ag helm helm-ag helm-flx helm-fuzzier helm-fuzzy-find helm-projectile helm-swoop projectile evil)))
+    (pandoc-mode pandoc grip-mode impatient-mode flymd php-mode dockerfile-mode nix-mode clojure-mode solarized-theme ace-jump-helm-line use-package clj-refactor cider-repl evil-cleverparens org-agenda general magit pipenv poly-R R circleci build-status rspec-mode rainbow-delimeters rainbow-delimeters-mode ace-jump ace-jump-mode exunit dap-ui-mode dap dap-mode lsp company-mode winner-mode ace-window ibuffer-projectile dired-sidebar ibuffer-sidebar ibuffer-vc noflet color-theme-buffer-local load-theme-buffer-local smart-shift highlight-indent-guides flymake-yaml yaml-imenu yaml-mode yaml-tomato rbenv go-mode rainbow-delimiters rainbow-mode company-ghc haskell-mode helm-hoogle scion company-lsp lsp-mode lsp-ocaml lsp-ui reason-mode cider cider-eval-sexp-fu sotclojure merlin merlin-eldoc tuareg web-mode treemacs alchemist elixir-mode s popup pkg-info helm-core flycheck epl async yasnippet company-c-headers objc-font-lock xclip exec-path-from-shell ecb undo-tree company w3m which-key ag helm helm-ag helm-flx helm-fuzzier helm-fuzzy-find helm-projectile helm-swoop projectile evil)))
  '(solarized-high-contrast-mode-line nil)
  '(yas-snippet-dirs (quote ("/Users/alex/.emacs.d/snippets"))))
 (custom-set-faces
@@ -76,3 +77,13 @@
 
 ;; Every time a window is started, make sure it get maximized
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
+(put 'narrow-to-region 'disabled nil)
+
+
+
+
+(setq-default
+ whitespace-line-column 80
+ whitespace-style       '(face lines-tail))
+
+(add-hook 'prog-mode-hook #'whitespace-mode)

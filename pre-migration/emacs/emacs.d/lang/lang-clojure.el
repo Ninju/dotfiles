@@ -1,5 +1,6 @@
 (use-package clojure-mode
   :ensure t
+  :demand t
   :mode (("\\.clj\\'" . clojure-mode)
          ("\\.edn$" . clojure-mode))
   :general
@@ -26,6 +27,7 @@
 
 (use-package cider
   :ensure t
+  :demand t
   :general
   (:states 'normal
     ", ," 'cider-find-var

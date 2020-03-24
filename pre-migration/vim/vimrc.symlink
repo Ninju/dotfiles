@@ -169,11 +169,20 @@ if has("gui_running")
   set background=light
 else
   let g:solarized_termcolors=256
-  set background=dark
+  set background=light
 end
 
 " Do not have solarized installed right now
-" colorscheme solarized
+colorscheme solarized
+
+highlight Normal ctermbg=white
+highlight  LineNr ctermbg=lightgrey ctermfg=None
+" Default Colors for CursorLine
+highlight  CursorLine ctermbg=lightgrey ctermfg=None
+set colorcolumn=80
+highlight ColorColumn ctermbg=lightgrey
+hi Folded ctermbg=White
+
 
 " My old colorscheme: colorscheme darkblue
 
@@ -181,12 +190,12 @@ set cursorline
 set colorcolumn=80
 
 " Search results to black text color so I can actually see them!
-highlight Search cterm=NONE ctermbg='Yellow' ctermfg='Black'
+highlight Search cterm=NONE ctermbg='Yellow' ctermfg='White'
 highlight IncSearch cterm=NONE ctermbg='LightYellow' ctermfg='Black'
 
 " hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white
 " almost black - I like this one a lot
-highlight CursorLine   cterm=NONE ctermbg=234 ctermfg=NONE
+" highlight CursorLine   cterm=NONE ctermbg=234 ctermfg=NONE
 
 " hi CursorLine cterm=underline
 " hi CursorLine gui=underline

@@ -20,6 +20,7 @@
     };
     extraConfig = {
       core = { editor = "vim"; };
+      rerere.enabled = true;
     };
   };
 }

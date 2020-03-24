@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  programs.termite = {
+  programs.bash = {
     enable = true;
   };
 }

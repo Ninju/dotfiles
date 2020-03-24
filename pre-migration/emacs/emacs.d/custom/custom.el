@@ -119,13 +119,13 @@
            header-line-format nil))
    (set-window-buffer nil (current-buffer)))
 
-(mode-line-in-header)
+;; (mode-line-in-header)
 (global-set-key (kbd "C-x j SPC") 'hidden-mode-line-mode)
 
 ;; Activate hidden-mode-line-mode
 (hidden-mode-line-mode 0)
-(setq-default header-line-format mode-line-format-bak)
-(setq-default mode-line-format nil)
+;; (setq-default header-line-format mode-line-format-bak)
+;; (setq-default mode-line-format nil)
 
 ;; A small minor mode to use a big fringe
 (defvar bzg-big-fringe-mode nil)
@@ -162,3 +162,21 @@
 ;; Get rid of the indicators in the fringe
 ;; (mapcar (lambda(fb) (set-fringe-bitmap-face fb 'org-hide))
         ;; fringe-bitmaps)
+
+
+(defun markdown-html (buffer)
+  (princ (with-current-buffer buffer
+    (format "<!DOCTYPE html><html><title>Impatient Markdown</title><xmp theme=\"united\" style=\"display:none;\"> %s  </xmp><script src=\"http://strapdownjs.com/v/0.2/strapdown.js\"></script></html>" (buffer-substring-no-properties (point-min) (point-max))))
+  (current-buffer)))
+
+(org-export-define-backend 'pandoc
+  ...
+  :options-alist '())
+
+(setq org-todo-keyword-faces
+  '(("TODO" . (:foreground "#ff39a3" :weight bold))
+("TODO" . "#E35DBF")
+("IN-PROCESS" . (:foreground "white" :background "#4d4d4d" :weight bold))
+("BLOCKED" . "pink")
+("DONE" . "#008080")
+("DELETE" . "#e4cd05")))

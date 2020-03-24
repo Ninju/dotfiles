@@ -3,3 +3,4 @@
 .lsp-session-v1
 local-emacsd-backup
 local-vim-backup
+.*~
