@@ -1,6 +1,0 @@
-[switch_keyboard_layout]
-command=$SCRIPT_DIR/switch_keyboard_layout
-interval=30
-LABEL=BAT
-#LABEL=⚡
-#BAT_NUMBER=0
