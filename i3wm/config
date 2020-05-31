@@ -142,17 +142,17 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
- #set $keyboardLayout Set keyboard layout [e]nglish [a]ustralian [u]kraine [r]ussian
- #bindsym $mod+o mode "$keyboardlayout"
- #mode "$keyboardlayout" {
- #     bindsym e exec setxkbmap gb
- #     bindsym a exec setxkbmap au
- #     bindsym u exec setxkbmap ua
- #     bindsym r exec setxkbmap ru
- #
- #     bindsym Escape mode "default"
- #     bindsym Return mode "default"
- #}
+set $keyboardLayout Set keyboard layout [e]nglish [a]ustralian [u]kraine [r]ussian
+bindsym $mod+o mode "$keyboardlayout"
+mode "$keyboardlayout" {
+     bindsym e exec setxkbmap gb
+     bindsym a exec setxkbmap au
+     bindsym u exec setxkbmap ua
+     bindsym r exec setxkbmap ru
+
+     bindsym Escape mode "default"
+     bindsym Return mode "default"
+}
 
 bindsym $mod+u border none
 bindsym $mod+Shift+u border normal 2
@@ -168,16 +168,6 @@ bindsym $mod+i exec i3-input
 bindsym $mod+Shift+s move workspace to output left
 
 for_window [class=".*"] border pixel 5
-gaps inner 5
-
-# class                 border  backgr. text    indicator child_border
-client.focused          #4c7899 #285577 #ffffff #2e9ef4   #ffff00
-client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
-client.unfocused        #333333 #222222 #888888 #292d2e   #222222
-client.urgent           #2f343a #900000 #ffffff #900000   #900000
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
- 
-client.background       #ffffff
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec amixer -q sset Master 5%+ unmute
