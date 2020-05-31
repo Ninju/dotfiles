@@ -1,5 +1,0 @@
-;; All machine-specific config
-;; e.g. font size, or project specific helper bindings and functions
-
-;; Font size
-(set-face-attribute 'default nil :height 120)
