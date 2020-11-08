@@ -3,8 +3,8 @@
 {
   programs.git = {
     enable = true;
-    userName = "Ninju";
-    userEmail = "a-alex.watt@rvu.co.uk";
+    userName = "***";
+    userEmail = "***";
     aliases = {
       unstage = "reset HEAD --";
       pr = "pull --rebase";
@@ -19,8 +19,12 @@
       recent-branches = "branch --sort=-committerdate";
     };
     extraConfig = {
-      core = { editor = "vim"; };
+      core = { editor = "emacs"; };
       rerere.enabled = true;
     };
+#   signing = {
+#     signByDefault = true;
+#     key = "************";
+#   };
   };
 }
