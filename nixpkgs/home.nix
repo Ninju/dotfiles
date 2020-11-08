@@ -7,8 +7,8 @@ in
 # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  # home.file.".lein/profiles.clj".source = ~/dotfiles/lein/profiles.clj;
-  # home.file.".config/rofi/config".source = ./dotfiles/config/rofi/config;
+  home.file.".lein/profiles.clj".source = ./dotfiles/lein/profiles.clj;
+  home.file.".config/rofi/config".source = ./dotfiles/config/rofi/config;
 
   home.packages = with pkgs; [
     ag
