@@ -57,19 +57,19 @@ in
     # tcpdump
   ];
 
-#   imports = [
+  imports = [
 #     ./imports/autorandr.nix
 #     ./imports/neovim.nix
 #     ./imports/bash.nix
 #     ./imports/session-variables.nix
 #     ./imports/emacs.nix
 #     ./imports/keyboard.nix
-#     ./imports/git.nix
+     ./imports/git.nix
 #     ./imports/ssh.nix
 #     ./imports/termite.nix
 #     # ./imports/firefox.nix
 #     ./imports/i3.nix
-#   ];
+  ];
 
   # Custom software that didn't work through home-manager (on MacOS):
   # - tabnine (no exist)
