@@ -70,4 +70,14 @@ in
 #     # ./imports/firefox.nix
 #     ./imports/i3.nix
 #   ];
+
+  # Custom software that didn't work through home-manager (on MacOS):
+  # - tabnine (no exist)
+  # - grpccurl (no exist)
+  # - circleci (no exist)
+  # iterm2 (compile fail)
+  # - termite (no worky on Darwin)
+  # - st (no worky on Darwin)
+
+
 }
