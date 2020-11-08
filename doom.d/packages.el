@@ -55,3 +55,6 @@
 (package! dart-mode)
 (package! dart-server)
 (package! darkroom)
+(package! protobuf-mode)
+(package! typescript-mode)
+(package! dockerfile-mode)
