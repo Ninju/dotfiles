@@ -21,6 +21,9 @@
     extraConfig = {
       core = { editor = "emacs"; };
       rerere.enabled = true;
+
+      # Fixes getting dependencies from private repos in Golang
+      url."git@github.com:".insteadOf = "https://github.com/";
     };
 #   signing = {
 #     signByDefault = true;
