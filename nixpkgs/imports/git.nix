@@ -29,5 +29,7 @@
 #     signByDefault = true;
 #     key = "************";
 #   };
+
+    ignores = ["*.swp" "*~"];
   };
 }
