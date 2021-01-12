@@ -102,7 +102,12 @@
       :n ", a d" #'ag-dired
       :n ", a p" #'ag-project
       :n ", a k" #'ag-kill-other-buffers
+
+      :v ", c '" #'comment-region
+      :v ", c \"" #'uncomment-region
+
       :n "SPC" #'avy-goto-char)
+
 
 (when (featurep 'ns)
   (defun ns-raise-emacs ()
