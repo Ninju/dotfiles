@@ -11,5 +11,5 @@
                      (pjstadig.humane-test-output/activate!)]
         :plugins [[cider/cider-nrepl "0.22.0-beta2"]
                   [refactor-nrepl "2.4.0"]]}
- :user {:dependencies [[com.stuartsierra/stacktrace.raw "0.1.0-SNAPSHOT"]]
-        :injections [(require 'com.stuartsierra.stacktrace.raw)]}}
+ :user {:dependencies []
+        :injections []}}
