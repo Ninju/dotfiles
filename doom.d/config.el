@@ -85,7 +85,6 @@
 
 (add-hook! 'prog-mode-hook (lambda () (yafolding-mode)))
 
-
 (defun aj-toggle-fold ()
   "Toggle fold all lines larger than indentation on current line"
   (interactive)
