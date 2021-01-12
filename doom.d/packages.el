@@ -58,3 +58,7 @@
 (package! protobuf-mode)
 (package! typescript-mode)
 (package! dockerfile-mode)
+(package! graphql-mode)
+(package! forth-mode)
+(package! sql-indent)
+(package! undo-tree)
