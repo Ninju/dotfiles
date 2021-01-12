@@ -35,6 +35,7 @@ in
 
         "${mod}+d" = "exec ${rofi-bin} -show run";
         "${mod}+Shift+d" = "exec ${rofi-bin} -show window";
+        "${mod}+Shift+z" = "exec --no-startup-id morc_menu";
 
         "${mod}+j" = "focus left";
         "${mod}+k" = "focus down";
