@@ -62,3 +62,9 @@
 (package! forth-mode)
 (package! sql-indent)
 (package! undo-tree)
+(package! simple-httpd)
+(package! impatient-mode)
+
+(after! simple-httpd
+  (setq httpd-port 7070)
+  (setq httpd-host "localhost"))
