@@ -83,6 +83,11 @@
 (add-hook! 'dart-server-hook (lambda () (add-to-list company-backends #'company-dart)))
 (add-hook! 'dart-server-hook 'flycheck-mode)
 
+;;- Golang
+
+(add-hook! go-mode
+  (setq gofmt-command "goimports"))
+
 (add-hook! 'prog-mode-hook (lambda () (yafolding-mode)))
 
 (defun aj-toggle-fold ()
