@@ -131,6 +131,11 @@
 
   (when (display-graphic-p)
     (ns-raise-emacs)))
+
+(setq deft-directory "~/notes"
+      deft-extensions '("org" "txt")
+      deft-recursive t)
+
 (defun my-markdown-filter (buffer)
   (princ
    (with-temp-buffer
