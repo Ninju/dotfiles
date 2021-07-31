@@ -154,3 +154,5 @@
   (impatient-mode)
   (imp-set-user-filter 'my-markdown-filter)
   (imp-visit-buffer))
+
+(remove-hook 'doom-first-buffer-hook #'smartparens-global-mode)
