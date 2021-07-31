@@ -101,10 +101,13 @@
        (if selective-display nil (or col 1))))))
 
 (map! :n "z l" #'aj-toggle-fold ;; overwrites evil-scroll-column-right
-      :n ", l" #'aj-toggle-fold ;; my old keybinding
       :n "z ;" #'evil-scroll-column-right
+      :n ", l" #'aj-toggle-fold ;; my old keybinding
+
       :n ", a g" #'ag
+      :n ", a r" #'ag-regexp
       :n ", a d" #'ag-dired
+      :n ", a s" #'ag-dired-regexp
       :n ", a p" #'ag-project
       :n ", a k" #'ag-kill-other-buffers
 
@@ -112,7 +115,6 @@
       :v ", c \\" #'uncomment-region
 
       :n "SPC" #'avy-goto-char)
-
 
 (when (featurep 'ns)
   (defun ns-raise-emacs ()
