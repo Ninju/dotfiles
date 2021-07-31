@@ -9,7 +9,7 @@
     withPython3 = true;
 
     configure = {
-      customRC = builtins.readFile ../pre-migration/vim/vimrc.symlink;
+      customRC = builtins.readFile ../dotfiles/vim/vimrc.symlink;
 
       plug.plugins = with pkgs.vimPlugins; [
         vim-fireplace
