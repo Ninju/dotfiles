@@ -63,7 +63,11 @@
 (package! sql-indent)
 (package! undo-tree)
 (package! simple-httpd)
+(package! feature-mode)
 (package! impatient-mode)
+(package! default-text-scale)
+(package! ox-twbs)
+(package! magit-section)
 
 (after! simple-httpd
   (setq httpd-port 7070)
