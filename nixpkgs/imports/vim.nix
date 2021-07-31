@@ -10,6 +10,6 @@
       "surround"
       "vim-colorschemes"
     ];
-    extraConfig = builtins.readFile ../pre-migration/vim/vimrc.symlink;
+    extraConfig = builtins.readFile ./dotfiles/vim/vimrc.symlink;
   };
 }
